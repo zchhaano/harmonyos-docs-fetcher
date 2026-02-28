@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+
+# HarmonyOS docs (too large for GitHub)
+harmonyos-docs-full/
+harmonyos-docs-full-clawer/
+*.zip
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+errors.jsonl
+failed.json
+
+# Progress files (optional, comment out if you want to track)
+*_progress.json
+*_mapping.json
