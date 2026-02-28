@@ -1,0 +1,28 @@
+# Class (PdfData)
+
+createPdf函数输出数据流类。
+
+ 说明 
+
+- 本模块首批接口从API version 9开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。
+- 本Class首批接口从API version 14开始支持。
+- 示例效果请以真机运行为准。
+- 在网页生成PDF过程中，返回的是数据流，由PdfData类封装。
+
+## pdfArrayBuffer 14+
+
+支持设备PhonePC/2in1TabletTVWearable
+
+pdfArrayBuffer(): Uint8Array
+
+获取网页生成的数据流。完整示例代码参考[createPdf](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#createpdf14)。
+
+**系统能力：** SystemCapability.Web.Webview.Core
+
+**返回值：**
+
+ 展开
+
+| 类型 | 说明 |
+| --- | --- |
+| Uint8Array | 数据流。 |

@@ -1,0 +1,1061 @@
+# 基础类型定义
+
+说明 
+
+本模块首批接口从API version 7开始支持，后续版本的新增接口，采用上角标单独标记接口的起始版本。
+
+## Resource
+
+ 支持设备PhonePC/2in1TabletTVWearable
+
+资源引用类型，用于设置组件属性的值。各类资源文件，需要放入特定子目录中存储管理，资源目录的示例请参考[资源分类](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/resource-categories-and-access#资源分类)。
+
+**卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
+
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+可以通过$r或者$rawfile创建Resource类型对象，不可以修改Resource中的各属性的值。
+
+- $r('belonging.type.name')
+
+belonging：系统资源或者应用资源，相应的取值为'sys'和'app'；
+
+type：资源类型，支持'boolean'、'color'、'float'、'intarray'、'integer'、'pattern'、'plural'、'strarray'、'string'、'media'；
+
+name：资源名称，在资源定义时确定。
+- $rawfile('filename')
+
+filename：工程中resources/rawfile目录下的文件名称。
+
+ 说明 
+
+引用资源类型时，需确保资源类型对象内的数据类型与当前以资源类型作为参数的属性方法本身的类型一致。例如某个属性方法支持设置string | Resource，那么在使用Resource引用类型时，其数据类型也应当为string。
+
+引用资源类型时，需确保资源类型对象用法为当前支持的用法，否则当前以资源类型作为参数的属性效果将和不设置该属性相同。
+
+## Length
+
+ 支持设备PhonePC/2in1TabletTVWearable
+
+长度类型，用于描述尺寸单位。
+
+**卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
+
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+  展开
+
+| 类型 | 说明 |
+| --- | --- |
+| string | 需要显式指定 像素单位 ，如'10px'，也可设置百分比字符串，如'100%'。 说明： 不指定像素单位时，默认单位vp，如'10'，等同于10。 |
+| number | 默认单位vp。 |
+| Resource | 资源引用类型，引入系统资源或者应用资源中的尺寸。 |
+
+## ResourceStr
+
+ 支持设备PhonePC/2in1TabletTVWearable
+
+字符串类型，用于描述字符串入参可以使用的类型。
+
+**卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
+
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+  展开
+
+| 类型 | 说明 |
+| --- | --- |
+| string | 字符串类型。 |
+| Resource | 资源引用类型，引入系统资源或者应用资源中的字符串。 |
+
+## Padding
+
+ 支持设备PhonePC/2in1TabletTVWearable
+
+内边距类型，用于描述组件不同方向的内边距。
+
+**卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
+
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+  展开
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| top | Length | 否 | 是 | 上内边距，组件内元素距组件顶部的尺寸。 |
+| right | Length | 否 | 是 | 右内边距，组件内元素距组件右边界的尺寸。 |
+| bottom | Length | 否 | 是 | 下内边距，组件内元素距组件底部的尺寸。 |
+| left | Length | 否 | 是 | 左内边距，组件内元素距组件左边界的尺寸。 |
+
+## LocalizedPadding 12+
+
+ 支持设备PhonePC/2in1TabletTVWearable
+
+内边距类型，用于描述组件不同方向的内边距。
+
+**卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
+
+**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+  展开
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| top | LengthMetrics 12+ | 否 | 是 | 上内边距，组件内元素距组件顶部的尺寸。 |
+| end | LengthMetrics 12+ | 否 | 是 | 右内边距，组件内元素距组件右边界的尺寸。 从右至左显示语言模式下为 左内边距，组件内元素距组件左边界的尺寸。 |
+| bottom | LengthMetrics 12+ | 否 | 是 | 下内边距，组件内元素距组件底部的尺寸。 |
+| start | LengthMetrics 12+ | 否 | 是 | 左内边距，组件内元素距组件左边界的尺寸。 从右至左显示语言模式下为 右内边距，组件内元素距组件右边界的尺寸。 |
+
+## Margin
+
+ 支持设备PhonePC/2in1TabletTVWearable
+
+外边距类型，用于描述组件不同方向的外边距。
+
+**卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
+
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+  展开
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| top | Length | 否 | 是 | 上外边距，组件顶部距组件外元素的尺寸。 |
+| right | Length | 否 | 是 | 右外边距，组件右边界距组件外元素的尺寸。 |
+| bottom | Length | 否 | 是 | 下外边距，组件底部距组件外元素的尺寸。 |
+| left | Length | 否 | 是 | 左外边距，组件左边界距组件外元素的尺寸。 |
+
+## LocalizedMargin 12+
+
+ 支持设备PhonePC/2in1TabletTVWearable
+
+外边距类型，用于描述组件不同方向的外边距。
+
+**卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
+
+**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+  展开
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| top | LengthMetrics 12+ | 否 | 是 | 上外边距，组件顶部距组件外元素的尺寸。 |
+| end | LengthMetrics 12+ | 否 | 是 | 右外边距，组件右边界距组件外元素的尺寸。 从右至左显示语言模式下为 左外边距，组件左边界距组件外元素的尺寸。 |
+| bottom | LengthMetrics 12+ | 否 | 是 | 下外边距，组件底部距组件外元素的尺寸。 |
+| start | LengthMetrics 12+ | 否 | 是 | 左外边距，组件左边界距组件外元素的尺寸。 从右至左显示语言模式下为 右外边距，组件右边界距组件外元素的尺寸。 |
+
+## EdgeWidths 9+
+
+ 支持设备PhonePC/2in1TabletTVWearable
+
+边框宽度类型，用于描述组件边框不同方向的宽度。
+
+引入该对象时，至少传入一个参数。
+
+**卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
+
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+  展开
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| top | Length | 否 | 是 | 组件上边框宽度。 |
+| right | Length | 否 | 是 | 组件右边框宽度。 |
+| bottom | Length | 否 | 是 | 组件下边框宽度。 |
+| left | Length | 否 | 是 | 组件左边框宽度。 |
+
+## LocalizedEdgeWidths 12+
+
+ 支持设备PhonePC/2in1TabletTVWearable
+
+边框宽度类型，用于描述组件边框不同方向的宽度。
+
+引入该对象时，至少传入一个参数。
+
+**卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
+
+**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+  展开
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| top | LengthMetrics 12+ | 否 | 是 | 组件上边框宽度。 |
+| end | LengthMetrics 12+ | 否 | 是 | 组件右边框宽度。 从右至左显示语言模式下为组件左边框宽度。 |
+| bottom | LengthMetrics 12+ | 否 | 是 | 组件下边框宽度。 |
+| start | LengthMetrics 12+ | 否 | 是 | 组件左边框宽度。 从右至左显示语言模式下为组件右边框宽度。 |
+
+## BorderRadiuses 9+
+
+ 支持设备PhonePC/2in1TabletTVWearable
+
+圆角类型，用于描述组件边框圆角半径。
+
+引用该对象时，至少传入一个参数。
+
+**卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
+
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+  展开
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| topLeft | Length | 否 | 是 | 组件左上角圆角半径。 |
+| topRight | Length | 否 | 是 | 组件右上角圆角半径。 |
+| bottomLeft | Length | 否 | 是 | 组件左下角圆角半径。 |
+| bottomRight | Length | 否 | 是 | 组件右下角圆角半径。 |
+
+## LocalizedBorderRadiuses 12+
+
+ 支持设备PhonePC/2in1TabletTVWearable
+
+圆角类型，用于描述组件边框圆角半径。
+
+引用该对象时，至少传入一个参数。
+
+**卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
+
+**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+  展开
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| topStart | LengthMetrics 12+ | 否 | 是 | 组件左上角圆角半径。 从右至左显示语言模式下为组件右上角圆角半径。 |
+| topEnd | LengthMetrics 12+ | 否 | 是 | 组件右上角圆角半径。 从右至左显示语言模式下为组件左上角圆角半径。 |
+| bottomStart | LengthMetrics 12+ | 否 | 是 | 组件左下角圆角半径。 从右至左显示语言模式下为组件右下角圆角半径。 |
+| bottomEnd | LengthMetrics 12+ | 否 | 是 | 组件右下角圆角半径。 从右至左显示语言模式下为组件左下角圆角半径。 |
+
+## EdgeColors 9+
+
+ 支持设备PhonePC/2in1TabletTVWearable
+
+边框颜色，用于描述组件边框四条边的颜色。
+
+引入该对象时，至少传入一个参数。
+
+**卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
+
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+  展开
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| top | ResourceColor | 否 | 是 | 组件上边框颜色。 |
+| right | ResourceColor | 否 | 是 | 组件右边框颜色。 |
+| bottom | ResourceColor | 否 | 是 | 组件下边框颜色。 |
+| left | ResourceColor | 否 | 是 | 组件左边框颜色。 |
+
+## LocalizedEdgeColors 12+
+
+ 支持设备PhonePC/2in1TabletTVWearable
+
+边框颜色，用于描述组件边框四条边的颜色。
+
+引入该对象时，至少传入一个参数。
+
+**卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
+
+**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+  展开
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| top | ResourceColor | 否 | 是 | 组件上边框颜色。 |
+| end | ResourceColor | 否 | 是 | 组件右边框颜色。 从右至左显示语言模式下为组件左边框颜色。 |
+| bottom | ResourceColor | 否 | 是 | 组件下边框颜色。 |
+| start | ResourceColor | 否 | 是 | 组件左边框颜色。 从右至左显示语言模式下为组件右边框颜色。 |
+
+## EdgeStyles 9+
+
+ 支持设备PhonePC/2in1TabletTVWearable
+
+边框样式，用于描述组件边框四条边的样式。
+
+引入该对象时，至少传入一个参数。
+
+**卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
+
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+  展开
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| top | BorderStyle | 否 | 是 | 组件上边框样式。 |
+| right | BorderStyle | 否 | 是 | 组件右边框样式。 |
+| bottom | BorderStyle | 否 | 是 | 组件下边框样式。 |
+| left | BorderStyle | 否 | 是 | 组件左边框样式。 |
+
+## Offset
+
+ 支持设备PhonePC/2in1TabletTVWearable
+
+相对布局完成位置坐标偏移量。
+
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+  展开
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| dx | Length | 否 | 否 | 水平方向偏移量。 |
+| dy | Length | 否 | 否 | 竖直方向偏移量。 |
+
+## RectResult 10+
+
+ 支持设备PhonePC/2in1TabletTVWearable
+
+位置和尺寸类型，用于描述组件的位置和宽高。
+
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+  展开
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| x | number | 否 | 否 | 水平方向横坐标。 |
+| y | number | 否 | 否 | 竖直方向纵坐标。 |
+| width | number | 否 | 否 | 内容宽度大小。 |
+| height | number | 否 | 否 | 内容高度大小。 |
+
+## ResourceColor
+
+ 支持设备PhonePC/2in1TabletTVWearable
+
+type ResourceColor = [Color](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#color) | number | string | [Resource](/consumer/cn/doc/harmonyos-references/ts-types#resource)
+
+颜色类型，用于描述资源颜色类型。
+
+**卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
+
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+  展开
+
+| 类型 | 说明 |
+| --- | --- |
+| Color | 颜色枚举值。 |
+| number | HEX格式颜色，支持rgb或者argb。示例：0xffffff，0xffff0000。number无法识别传入位数，格式选择依据值的大小，例如0x00ffffff作rgb格式解析。 |
+| string | rgb或者rgba格式颜色。示例：'#ffffff'，'#ff000000'，'rgb(255, 100, 255)'，'rgba(255, 100, 255, 0.5)'。 |
+| Resource | 使用引入资源的方式，引入系统资源或者应用资源中的颜色。 |
+
+## LengthConstrain
+
+ 支持设备PhonePC/2in1TabletTVWearable
+
+长度约束，用于对组件最大、最小长度做限制。
+
+**卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
+
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+  展开
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| minLength | Length | 否 | 否 | 组件最小长度。 |
+| maxLength | Length | 否 | 否 | 组件最大长度。 |
+
+## Font
+
+ 支持设备PhonePC/2in1TabletTVWearable
+
+设置文本样式。
+
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+  展开
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| size | Length | 否 | 是 | 设置文本尺寸，Length为number类型时，使用fp单位。不支持设置百分比字符串。 默认值：16.0 |
+| weight | FontWeight \| number \| string | 否 | 是 | 设置文本的字体粗细，number类型取值[100, 900]，取值间隔为100，取值越大，字体越粗。 默认值：400 \| FontWeight.Normal |
+| family | string \| Resource | 否 | 是 | 设置文本的字体列表。使用多个字体，使用','进行分割，优先级按顺序生效。例如：'Arial, HarmonyOS Sans'。当前支持'HarmonyOS Sans'字体和注册自定义字体 loadFontSync 。 |
+| style | FontStyle | 否 | 是 | 设置文本的字体样式。 默认值：FontStyle.Normal |
+
+## Area 8+
+
+ 支持设备PhonePC/2in1TabletTVWearable
+
+区域类型，用于存储元素所占的区域信息。
+
+**卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
+
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+  展开
+
+| 名称 | 类型 | 说明 |
+| --- | --- | --- |
+| width | Length | 目标元素的宽度。 单位：vp |
+| height | Length | 目标元素的高度。 单位：vp |
+| position | Position | 目标元素左上角在以父元素为基准的 组件坐标系 中的位置。 |
+| globalPosition | Position | 目标元素左上角在当前窗口坐标系中的位置。 |
+
+## Position
+
+ 支持设备PhonePC/2in1TabletTVWearable
+
+位置类型，用于表示一个坐标点。
+
+**卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
+
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+  展开
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| x | Length | 否 | 是 | x轴坐标。 单位：vp |
+| y | Length | 否 | 是 | y轴坐标。 单位：vp |
+
+## LocalizedPosition 12+
+
+ 支持设备PhonePC/2in1TabletTVWearable
+
+位置类型，用于表示一个坐标点。
+
+**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+  展开
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| start | LengthMetrics | 否 | 是 | LTR模式时x轴相对左边坐标，RTL模式x轴相对右边坐标。 |
+| top | LengthMetrics | 否 | 是 | y轴坐标。 |
+
+## Edges 12+
+
+ 支持设备PhonePC/2in1TabletTVWearable
+
+位置类型，表示相对四边的偏移量。同时设置top和bottom，仅top生效；同时设置left和right，仅left生效。
+
+**卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
+
+**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+  展开
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| top | Dimension | 否 | 是 | 相对顶边的偏移量。 |
+| bottom | Dimension | 否 | 是 | 相对底边的偏移量。 |
+| left | Dimension | 否 | 是 | 相对左边的偏移量。 |
+| right | Dimension | 否 | 是 | 相对右边的偏移量。 |
+
+## LocalizedEdges 12+
+
+ 支持设备PhonePC/2in1TabletTVWearable
+
+位置类型，表示相对四边的偏移量。同时设置top和bottom，仅top生效；同时设置start和end，仅start生效。
+
+**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+  展开
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| top | LengthMetrics | 否 | 是 | 相对顶边的偏移量。 |
+| bottom | LengthMetrics | 否 | 是 | 相对底边的偏移量。 |
+| start | LengthMetrics | 否 | 是 | LTR模式时相对左边的偏移量，RTL模式时相对右边的偏移量。 |
+| end | LengthMetrics | 否 | 是 | LTR模式时相对右边的偏移量，RTL模式时相对左边的偏移量。 |
+
+## ConstraintSizeOptions
+
+ 支持设备PhonePC/2in1TabletTVWearable
+
+约束尺寸类型，用于描述组件布局时对尺寸大小的范围限制。
+
+**卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
+
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+  展开
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| minWidth | Length | 否 | 是 | 元素最小宽度。 |
+| maxWidth | Length | 否 | 是 | 元素最大宽度。 |
+| minHeight | Length | 否 | 是 | 元素最小高度。 |
+| maxHeight | Length | 否 | 是 | 元素最大高度。 |
+
+  说明 
+
+在[Row](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-row)、[Column](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-column)、[RelativeContainer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-relativecontainer)组件中，width、height设置auto表示自适应子组件。在[TextInput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textinput)组件中，width设置auto表示自适应文本宽度。
+
+## SizeOptions
+
+ 支持设备PhonePC/2in1TabletTVWearable
+
+宽高尺寸类型，用于描述组件布局时的宽高尺寸大小。
+
+**卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
+
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+  展开
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| width | Length | 否 | 是 | 元素宽度。 |
+| height | Length | 否 | 是 | 元素高度。 |
+
+## BorderOptions
+
+ 支持设备PhonePC/2in1TabletTVWearable
+
+边框属性集合，用于描述边框相关信息。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+  展开
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| width | EdgeWidths 9+ \| Length \| LocalizedEdgeWidths 12+ | 否 | 是 | 设置边框宽度。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 |
+| color | EdgeColors 9+ \| ResourceColor \| LocalizedEdgeColors 12+ | 否 | 是 | 设置边框颜色。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 |
+| radius | BorderRadiuses 9+ \| Length \| LocalizedBorderRadiuses 12+ | 否 | 是 | 设置边框圆角半径。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 |
+| style | EdgeStyles 9+ \| BorderStyle | 否 | 是 | 设置边框样式。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 |
+| dashGap 12+ | EdgeWidths \| LengthMetrics \| LocalizedEdgeWidths | 否 | 是 | 设置虚线的线段间距，仅在边框样式为虚线时生效。 不支持设置百分比。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 卡片能力： 该接口不支持在ArkTS卡片中使用。 |
+| dashWidth 12+ | EdgeWidths \| LengthMetrics \| LocalizedEdgeWidths | 否 | 是 | 设置虚线的线段长度，仅在边框样式为虚线时生效。 不支持设置百分比。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 卡片能力： 该接口不支持在ArkTS卡片中使用。 |
+
+## ColorFilter 9+
+
+ 支持设备PhonePC/2in1TabletTVWearable
+
+创建具有4*5矩阵的颜色过滤器。
+
+**卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
+
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+  展开
+
+| 名称 | 类型 | 必填 | 描述 |
+| --- | --- | --- | --- |
+| constructor | number[] | 是 | 创建具有4*5矩阵的颜色过滤器，入参为[m*n]位于m行和n列中矩阵值，矩阵是行优先的。 |
+
+## CustomBuilder 8+
+
+ 支持设备PhonePC/2in1TabletTVWearable
+
+组件属性方法参数可使用CustomBuilder类型来自定义UI描述。
+
+  展开
+
+| 名称 | 类型定义 | 描述 |
+| --- | --- | --- |
+| CustomBuilder | (() => any) \| void | 生成用户自定义组件，在使用时结合 @Builder 使用。 |
+
+## MarkStyle 10+ 对象说明
+
+ 支持设备PhonePC/2in1TabletTVWearable
+
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+  展开
+
+| 名称 | 类型 | 只读 | 可选 | 默认值 | 描述 |
+| --- | --- | --- | --- | --- | --- |
+| strokeColor | ResourceColor | 否 | 是 | Color.White | 内部图标颜色。 |
+| size | Length | 否 | 是 | - | 内部图标大小，单位vp。默认大小与多选框组件宽度相同。 不支持百分比形式设置。设置为非法值时，按照默认值处理。 |
+| strokeWidth | Length | 否 | 是 | 2 | 内部图标粗细，单位vp。不支持设置百分比。设置为非法值时，按照默认值处理。 |
+
+## ModalTransition 10+
+
+ 支持设备PhonePC/2in1TabletTVWearable
+
+全屏模态转场方式枚举类型，用于设置全屏模态转场类型。
+
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+  展开
+
+| 名称 | 描述 |
+| --- | --- |
+| NONE | 全屏模态无转场动画。 |
+| DEFAULT | 全屏模态上下切换动画。 |
+| ALPHA | 全屏模态透明度渐变动画。 |
+
+## OutlineOptions 11+ 对象说明
+
+ 支持设备PhonePC/2in1TabletTVWearable
+
+外描边选项设置。
+
+**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**卡片能力：** 从API version 11开始，该接口支持在ArkTS卡片中使用。
+
+  展开
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| width | Dimension \| EdgeOutlineWidths | 否 | 是 | 设置外描边宽度，不支持百分比。 默认值：0，外描边效果中width为必设项，否则不显示外描边。 |
+| color | ResourceColor \| EdgeColors \| LocalizedEdgeColors 12+ | 否 | 是 | 设置外描边颜色。 默认值：Color.Black |
+| radius | Dimension \| OutlineRadiuses | 否 | 是 | 设置外描边圆角半径，不支持百分比。 默认值：0 最大生效值：组件width/2 + outlineWidth或组件height/2 + outlineWidth。 |
+| style | OutlineStyle \| EdgeOutlineStyles | 否 | 是 | 设置外描边样式。 默认值：OutlineStyle.SOLID |
+
+## EdgeOutlineWidths 11+ 对象说明
+
+ 支持设备PhonePC/2in1TabletTVWearable
+
+引入该对象时，至少传入一个参数。
+
+**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**卡片能力：** 从API version 11开始，该接口支持在ArkTS卡片中使用。
+
+  展开
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| left | Dimension | 否 | 是 | 左侧外描边宽度。 |
+| right | Dimension | 否 | 是 | 右侧外描边宽度。 |
+| top | Dimension | 否 | 是 | 上侧外描边宽度。 |
+| bottom | Dimension | 否 | 是 | 下侧外描边宽度。 |
+
+## OutlineRadiuses 11+ 对象说明
+
+ 支持设备PhonePC/2in1TabletTVWearable
+
+引用该对象时，至少传入一个参数。
+
+**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**卡片能力：** 从API version 11开始，该接口支持在ArkTS卡片中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+  展开
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| topLeft | Dimension | 否 | 是 | 左上角圆角半径。 |
+| topRight | Dimension | 否 | 是 | 右上角圆角半径。 |
+| bottomLeft | Dimension | 否 | 是 | 左下角圆角半径。 |
+| bottomRight | Dimension | 否 | 是 | 右下角圆角半径。 |
+
+## EdgeOutlineStyles 11+ 对象说明
+
+ 支持设备PhonePC/2in1TabletTVWearable
+
+引入该对象时，至少传入一个参数。
+
+**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**卡片能力：** 从API version 11开始，该接口支持在ArkTS卡片中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+  展开
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| left | OutlineStyle | 否 | 是 | 左侧外描边样式。 |
+| right | OutlineStyle | 否 | 是 | 右侧外描边样式。 |
+| top | OutlineStyle | 否 | 是 | 上侧外描边样式。 |
+| bottom | OutlineStyle | 否 | 是 | 下侧外描边样式。 |
+
+## Dimension 10+
+
+ 支持设备PhonePC/2in1TabletTVWearable
+
+长度类型，用于描述尺寸单位。
+
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+  展开
+
+| 类型 | 说明 |
+| --- | --- |
+| PX | 需要指定以px像素单位，如'10px'。 |
+| VP | 需要指定数字或vp像素单位，如10或'10vp'。 |
+| FP | 需要指定以fp像素单位，如'10fp'。 |
+| LPX | 需要指定以lpx像素单位，如'10lpx'。 |
+| Percentage | 需要指定以%像素单位，如'10%'。 |
+| Resource | 资源引用类型，引入系统资源或者应用资源中的尺寸。 |
+
+## PX 10+
+
+ 支持设备PhonePC/2in1TabletTVWearable
+
+长度类型，用于描述以px像素单位为单位的长度。
+
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+  展开
+
+| 类型 | 说明 |
+| --- | --- |
+| {number}px | 需要指定以px像素单位，如'10px'。 |
+
+## VP 10+
+
+ 支持设备PhonePC/2in1TabletTVWearable
+
+长度类型，用于描述以vp像素单位为单位的长度。
+
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+  展开
+
+| 类型 | 说明 |
+| --- | --- |
+| {number}vp\|number | 需要指定数字或vp像素单位，如10或'10vp'。 |
+
+## FP 10+
+
+ 支持设备PhonePC/2in1TabletTVWearable
+
+长度类型，用于描述以fp像素单位为单位的长度。
+
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+  展开
+
+| 类型 | 说明 |
+| --- | --- |
+| {number}fp | 需要指定以fp像素单位，如'10fp'。 |
+
+## LPX 10+
+
+ 支持设备PhonePC/2in1TabletTVWearable
+
+长度类型，用于描述以lpx像素单位为单位的长度。
+
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+  展开
+
+| 类型 | 说明 |
+| --- | --- |
+| {number}lpx | 需要指定以lpx像素单位，如'10lpx'。 |
+
+## Percentage 10+
+
+ 支持设备PhonePC/2in1TabletTVWearable
+
+长度类型，用于描述以%像素单位为单位的长度。
+
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+  展开
+
+| 类型 | 说明 |
+| --- | --- |
+| {number}% | 需要指定以%像素单位，如'10%'。 |
+
+## Degree 10+
+
+ 支持设备PhonePC/2in1TabletTVWearable
+
+角度类型，用于描述以deg像素单位为单位的长度。
+
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+  展开
+
+| 类型 | 说明 |
+| --- | --- |
+| {number}deg | 需要指定以deg像素单位，如'10deg'。 |
+
+## TouchPoint 11+
+
+ 支持设备PhonePC/2in1TabletTVWearable
+
+配置跟手点坐标，不配置时，默认居中。
+
+**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+  展开
+
+| 名称 | 类型定义 | 描述 |
+| --- | --- | --- |
+| X | Dimension | 跟手点X轴坐标。 |
+| Y | Dimension | 跟手点Y轴坐标。 |
+
+## VoidCallback 12+
+
+ 支持设备PhonePC/2in1TabletTVWearable
+
+type VoidCallback：() => void;
+
+**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+## Callback 12+
+
+ 支持设备PhonePC/2in1TabletTVWearable
+
+Callback<T,V = void> = (data: T) => V;
+
+带参数的函数回调。
+
+**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+## DividerStyleOptions 12+
+
+ 支持设备PhonePC/2in1TabletTVWearable
+
+分割线样式属性集合, 用于描述分割线相关信息。
+
+**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+  展开
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| strokeWidth | LengthMetrics 12+ | 否 | 是 | 分割线的线宽。 |
+| color | ResourceColor | 否 | 是 | 分割线的颜色。 |
+| startMargin | LengthMetrics 12+ | 否 | 是 | 分割线与菜单侧边起始端的距离。 |
+| endMargin | LengthMetrics 12+ | 否 | 是 | 分割线与菜单侧边结束端的距离。 |
+| mode | DividerMode 19+ | 否 | 是 | 设置分割线模式。 |
+
+## ChainWeightOptions 14+ 对象说明
+
+ 支持设备PhonePC/2in1TabletTVWearable
+
+链中组件的布局权重。
+
+**元服务API：** 从API version 14开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+  展开
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| horizontal | number | 否 | 是 | 组件在竖直方向的布局权重，设置大于0的数字时生效。 默认值：0 异常值：0 |
+| vertical | number | 否 | 是 | 组件在水平方向的布局权重，设置大于0的数字时生效。 默认值：0 异常值：0 |
+
+## Configuration
+
+ 支持设备PhonePC/2in1TabletTVWearable
+
+数据类型。用于设置颜色模式和字体缩放倍数。
+
+**卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
+
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+  展开
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| colorMode | string | 是 | 否 | 颜色模式。 |
+| fontScale | number | 是 | 否 | 字体缩放。 |
+
+## AccessibilityOptions 14+ 对象说明
+
+ 支持设备PhonePC/2in1TabletTVWearable
+
+**元服务API：** 从API version 14开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+  展开
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| accessibilityPreferred | boolean | 否 | 是 | 若accessibilityPreferred设置为true，则深度遍历每个子节点时优先选择该子节点的无障碍文本accessibilityText。 若无障碍文本为空则选择本身Text文本，最终将拼接完成的文本设置给accessibilityText与Text都为空的父节点。 若accessibilityPreferred设置为false，表示不启用此功能。 默认值：false |
+
+## ScrollBarMargin 20+ 对象说明
+
+ 支持设备PhonePC/2in1TabletTVWearable
+
+滚动条边距。
+
+**元服务API：** 从API version 20开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+  展开
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| start | LengthMetrics | 否 | 是 | 滚动条起始边距。 默认值：0，单位：vp |
+| end | LengthMetrics | 否 | 是 | 滚动条末尾边距。 默认值：0，单位：vp |
+
+## ResponsiveFillType 22+
+
+ 支持设备PhonePC/2in1TabletTVWearable
+
+type ResponsiveFillType = PresetFillType
+
+响应式布局填充模式，用于WaterFlow、Grid、List和Swiper组件。
+
+**元服务API：** 从API version 22开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+  展开
+
+| 类型 | 说明 |
+| --- | --- |
+| PresetFillType | 为不同响应式断点规格指定列数。 |
+
+## ItemFillPolicy 22+
+
+ 支持设备PhonePC/2in1TabletTVWearable
+
+定义一个适用于WaterFlow、Grid、List和Swiper组件的响应式布局策略。
+
+**元服务API：** 从API version 22开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+  展开
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| fillType | ResponsiveFillType | 否 | 是 | 为不同的响应式断点指定列数。默认值为BREAKPOINT_DEFAULT。 |
+
+## DirectionalEdgesT<T> 12+
+
+ 支持设备PhonePC/2in1TabletTVWearable
+
+边缘宽度类型，用于描述组件边缘不同方向的宽度。支持全球化。
+
+**卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
+
+**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+  展开
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| start | T | 否 | 否 | 起始边缘的属性。在LTR的方向下，为左边缘，在RTL的方向下，为右边缘。 |
+| end | T | 否 | 否 | 终止边缘的属性。在LTR的方向下，为右边缘，在RTL的方向下，为左边缘。 |
+| top | T | 否 | 否 | 顶部边缘的属性。 |
+| bottom | T | 否 | 否 | 底部边缘的属性。 |
+
+## Bias对象说明
+
+ 支持设备PhonePC/2in1TabletTVWearable
+
+设置组件在锚点约束下的偏移参数。
+
+以水平方向Bias为例，其值为组件到左锚点的距离 Dstart与组件到水平方向锚点间总距离 Dstart + Dend的比值。镜像语言下，Dstart为组件到右锚点的距离。下图中Dwidth表示组件宽度。
+
+![image](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20260224170443.13081697328438666648154935452376:50001231000000:2800:CE00881ADA360DA8DBE70A56D7DBBC8D70BEC5D82E04F21EEA87ED5F720F2549.png)
+
+竖直方向同理，其值为组件到上锚点的距离Dtop与组件到竖直方向锚点间总距离Dtop + Dbottom的比值。下图中Dheight表示组件高度。
+
+![image](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20260224170443.90179844932301061025734080371330:50001231000000:2800:CD8417921AC33CA6B40630FEE09B2A84A3E0E801C3C4214ECCAE001F7F6F6B9C.png)
+
+**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+  展开
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| horizontal | number | 否 | 是 | 水平方向上的bias值。 当子组件的width属性有正确值并且有2个水平方向的锚点时生效，设置的值必须大于等于0。 默认值： 0.5 |
+| vertical | number | 否 | 是 | 垂直方向上的bias值。 当子组件的height属性有正确值并且有2个垂直方向的锚点时生效，设置的值必须大于等于0。 默认值： 0.5 |
+
+## CacheCountInfo 22+ 对象说明
+
+ 支持设备PhonePC/2in1TabletTVWearable
+
+缓存数量信息。
+
+**元服务API：** 从API version 22开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+  展开
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| minCount | number | 否 | 否 | 最小缓存数，当实际缓存数小于最小缓存数时，在滚动动画帧间空闲时隙加载缓存。 取值范围：[0, +∞)，小于0时按1处理。 |
+| maxCount | number | 否 | 否 | 最大缓存数，当实际缓存数大于最大缓存数时，缓存内容会回收或释放，当UI空闲时（无动画或用户操作），会加载缓存到最大缓存数。 取值范围：[minCount, +∞)，小于minCount时按minCount处理。 |

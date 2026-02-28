@@ -1,0 +1,17 @@
+# OH_Drawing_RecordCmdUtils
+
+```
+typedef struct OH_Drawing_RecordCmdUtils OH_Drawing_RecordCmdUtils
+```
+
+## 概述
+
+支持设备PhonePC/2in1TabletTVWearable
+
+定义指令录制工具，用于生成录制指令。
+
+**起始版本：** 13
+
+**相关模块：** [Drawing](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing)
+
+**所在头文件：** [drawing_types.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-types-h)

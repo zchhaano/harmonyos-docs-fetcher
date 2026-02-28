@@ -1,0 +1,35 @@
+## 函数功能
+
+获取有类型的tiling data指针。
+
+## 函数原型
+
+收起自动换行深色代码主题复制
+
+```
+template < typename T>  T * GetTilingData () ;
+```
+
+## 参数说明
+
+ 展开
+
+| 参数 | 输入/输出 | 说明 |
+| --- | --- | --- |
+| T | 输出 | tiling data类型，sizeof(T)不可以大于编译结果中指定的最大tiling data长度。 |
+
+## 返回值
+
+tiling data指针，失败时返回空指针。
+
+## 约束说明
+
+sizeof(T)不可以大于编译结果中指定的最大tiling data长度。
+
+## 调用示例
+
+收起自动换行深色代码主题复制
+
+```
+ge::graphStatus Tiling4XXX (TilingContext* context) { auto tiling_data = context-> GetTilingData < int64_t >(); // ... }
+```

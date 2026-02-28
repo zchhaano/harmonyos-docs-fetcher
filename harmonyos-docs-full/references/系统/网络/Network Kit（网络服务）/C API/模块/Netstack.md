@@ -1,0 +1,20 @@
+## 概述
+
+支持设备PhonePC/2in1TabletTVWearable
+
+提供SSL/TLS证书链校验模块的C接口。
+
+**起始版本：** 11
+
+## 文件汇总
+
+ 支持设备PhonePC/2in1TabletTVWearable展开
+
+| 名称 | 描述 |
+| --- | --- |
+| net_ssl_c.h | 定义SSL/TLS证书链校验模块C接口数据结构。 |
+| net_ssl_c_type.h | 定义SSL/TLS证书链校验模块的C接口需要的数据结构。 |
+| net_websocket.h | 定义websocket客户端模块的接口。 |
+| net_websocket_type.h | 定义websocket客户端模块的C接口需要的数据结构。 |
+| net_http.h | 定义HTTP请求模块的接口。 |
+| net_http_type.h | 定义HTTP请求模块的C接口需要的数据结构。 |

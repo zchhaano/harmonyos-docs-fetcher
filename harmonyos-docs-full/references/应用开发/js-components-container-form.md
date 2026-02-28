@@ -1,0 +1,74 @@
+# form
+
+说明 
+
+从API version 6开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。
+
+表单容器，支持容器内input元素的内容提交和重置。
+
+## 权限列表
+
+支持设备PhonePC/2in1TabletTVWearable
+
+无
+
+## 子组件
+
+支持设备PhonePC/2in1TabletTVWearable
+
+支持。
+
+## 属性
+
+支持设备PhonePC/2in1TabletTVWearable
+
+支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-common-attributes)。
+
+## 样式
+
+支持设备PhonePC/2in1TabletTVWearable
+
+支持[组件通用样式](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-common-styles)。
+
+## 事件
+
+支持设备PhonePC/2in1TabletTVWearable
+
+除支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-common-events)外，还支持如下事件：
+
+ 展开
+
+| 名称 | 参数 | 描述 |
+| --- | --- | --- |
+| submit | FormResult | 点击提交按钮，进行表单提交时，触发该事件。 |
+| reset | - | 点击重置按钮后，触发该事件。 |
+
+**表1** FormResult
+
+ 展开
+
+| 名称 | 类型 | 描述 |
+| --- | --- | --- |
+| value | Object | input元素的name和value的值。 |
+
+## 方法
+
+支持设备PhonePC/2in1TabletTVWearable
+
+支持[通用方法](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-common-methods)。
+
+## 示例
+
+支持设备PhonePC/2in1TabletTVWearable收起自动换行深色代码主题复制
+
+```
+<!-- xxx.hml --> < form onsubmit = 'onSubmit' onreset = 'onReset' > < div style = "width: 600px;height: 150px;flex-direction: row;justify-content: space-around;" > < label > 选项一 </ label > < input type = 'radio' name = 'radioGroup' value = 'radio1' > </ input > < label > 选项二 </ label > < input type = 'radio' name = 'radioGroup' value = 'radio2' > </ input > </ div > < text style = "margin-left: 50px;margin-bottom: 50px;" > 输入文本 </ text > < input type = 'text' name = 'user' > </ input > < div style = "width: 600px;height: 150px;margin-top: 50px;flex-direction: row;justify-content: space-around;" > < input type = 'submit' > Submit </ input > < input type = 'reset' > Reset </ input > </ div > </ form >
+```
+
+ 收起自动换行深色代码主题复制
+
+```
+// xxx.js export default { onSubmit ( result ) { console . info (result. value . radioGroup ) // radio1 or radio2 console . info (result. value . user ) // text input value }, onReset ( ) { console . info ( 'reset all value' ) } }
+```
+
+![image](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20260224170852.91394860735852256756897749549474:50001231000000:2800:0EB5D0870BF58627B490572BFE3987D6A580FA496D42378559AF8D4BA56E1BD5.gif)

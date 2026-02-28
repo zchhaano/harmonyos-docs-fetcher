@@ -1,0 +1,126 @@
+## 概述
+
+支持设备PhonePC/2in1TabletTV
+
+声明相机的基本概念。
+
+**引用文件：** <ohcamera/camera_device.h>
+
+**库：** libohcamera.so
+
+**系统能力：** SystemCapability.Multimedia.Camera.Core
+
+**起始版本：** 12
+
+**相关模块：** [OH_Camera](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-camera)
+
+## 汇总
+
+支持设备PhonePC/2in1TabletTV 
+
+### 函数
+
+ 支持设备PhonePC/2in1TabletTV展开
+
+| 名称 | 描述 |
+| --- | --- |
+| Camera_ErrorCode OH_CameraDevice_GetCameraOrientation(Camera_Device* camera, uint32_t* orientation) | 获取相机设备的传感器方向属性。 |
+| Camera_ErrorCode OH_CameraDevice_GetHostDeviceName(Camera_Device* camera, char** hostDeviceName) | 获取远程设备名称。 |
+| Camera_ErrorCode OH_CameraDevice_GetHostDeviceType(Camera_Device* camera, Camera_HostDeviceType* hostDeviceType) | 获取远程设备类型。 |
+
+## 函数说明
+
+支持设备PhonePC/2in1TabletTV 
+
+### OH_CameraDevice_GetCameraOrientation()
+
+支持设备PhonePC/2in1TabletTV
+
+```
+Camera_ErrorCode OH_CameraDevice_GetCameraOrientation(Camera_Device* camera, uint32_t* orientation)
+```
+
+**描述**
+
+获取相机设备的传感器方向属性。
+
+**起始版本：** 12
+
+**参数：**
+
+ 展开
+
+| 参数项 | 描述 |
+| --- | --- |
+| Camera_Device * camera | 用于获取属性的Camera_Device。 |
+| uint32_t* orientation | 返回相机sensor角度属性。 |
+
+**返回：**
+
+ 展开
+
+| 类型 | 说明 |
+| --- | --- |
+| Camera_ErrorCode | CAMERA_OK：方法调用成功，返回传感器方向属性。 CAMERA_CAMERA_INVALID_ARGUMENT：参数丢失或者参数不正确。 CAMERA_SERVICE_FATAL_ERROR：相机服务异常。 |
+
+### OH_CameraDevice_GetHostDeviceName()
+
+支持设备PhonePC/2in1TabletTV
+
+```
+Camera_ErrorCode OH_CameraDevice_GetHostDeviceName(Camera_Device* camera, char** hostDeviceName)
+```
+
+**描述**
+
+获取远程设备名称。
+
+**起始版本：** 15
+
+**参数：**
+
+ 展开
+
+| 参数项 | 描述 |
+| --- | --- |
+| Camera_Device * camera | 用于获取属性的Camera_Device。 |
+| char** hostDeviceName | 返回远程设备名称属性。 |
+
+**返回：**
+
+ 展开
+
+| 类型 | 说明 |
+| --- | --- |
+| Camera_ErrorCode | CAMERA_OK：方法调用成功，将返回远程设备名称属性。 CAMERA_CAMERA_INVALID_ARGUMENT：参数丢失或者参数不正确。 CAMERA_SERVICE_FATAL_ERROR：相机服务异常。 |
+
+### OH_CameraDevice_GetHostDeviceType()
+
+支持设备PhonePC/2in1TabletTV
+
+```
+Camera_ErrorCode OH_CameraDevice_GetHostDeviceType(Camera_Device* camera, Camera_HostDeviceType* hostDeviceType)
+```
+
+**描述**
+
+获取远程设备类型。
+
+**起始版本：** 15
+
+**参数：**
+
+ 展开
+
+| 参数项 | 描述 |
+| --- | --- |
+| Camera_Device * camera | 用于获取属性的Camera_Device。 |
+| Camera_HostDeviceType * hostDeviceType | 远程设备类型属性。 |
+
+**返回：**
+
+ 展开
+
+| 类型 | 说明 |
+| --- | --- |
+| Camera_ErrorCode | CAMERA_OK：方法调用成功，将返回远程设备名称属性。 CAMERA_CAMERA_INVALID_ARGUMENT：参数丢失或者参数不正确。 CAMERA_SERVICE_FATAL_ERROR：相机服务异常。 |

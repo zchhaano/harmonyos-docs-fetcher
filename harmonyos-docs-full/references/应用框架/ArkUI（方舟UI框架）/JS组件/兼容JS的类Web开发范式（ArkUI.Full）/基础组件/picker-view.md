@@ -1,0 +1,397 @@
+# picker-view
+
+说明 
+
+ 从API version 4开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。
+
+嵌入页面的滑动选择器。
+
+## 子组件
+
+支持设备PhonePC/2in1TabletTVWearable
+
+不支持。
+
+## 属性
+
+支持设备PhonePC/2in1TabletTVWearable
+
+除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-common-attributes)外，还支持如下属性：
+
+ 展开
+
+| 名称 | 类型 | 默认值 | 必填 | 描述 |
+| --- | --- | --- | --- | --- |
+| type | string | text | 否 | 设置滑动选择器的类型，该属性不支持动态修改，可选项有： - text：文本选择器。 - time：时间选择器。 - date：日期选择器。 - datetime：日期时间选择器。 - multi-text：多列文本选择器。 |
+
+### 文本选择器
+
+ 支持设备PhonePC/2in1TabletTVWearable展开
+
+| 名称 | 类型 | 默认值 | 必填 | 描述 |
+| --- | --- | --- | --- | --- |
+| range | Array | - | 否 | 设置文本选择器的取值范围。 使用时需要使用数据绑定的方式range ={{data}}，js中声明相应变量data：["15","20","25"]。 |
+| selected | string | 0 | 否 | 设置文本选择器的默认选择值，该值需要为range的索引。 |
+| indicatorprefix | string | - | 否 | 文本选择器选定值增加的前缀字段。 |
+| indicatorsuffix | string | - | 否 | 文本选择器选定值增加的后缀字段。 |
+
+### 时间选择器
+
+ 支持设备PhonePC/2in1TabletTVWearable展开
+
+| 名称 | 类型 | 默认值 | 必填 | 描述 |
+| --- | --- | --- | --- | --- |
+| containsecond | boolean | false | 否 | 时间选择器是否包含秒。 默认值：false，表示时间选择器不包含秒。 |
+| selected | string | 当前时间 | 否 | 设置时间选择器的默认取值，格式为 HH:mm； 当包含秒时，格式为HH:mm:ss。 |
+| hours | number | 24 1-4 - 5+ | 否 | 设置时间选择器采用的时间格式，可选值： - 12：按照12小时制显示，用上午和下午进行区分； - 24：按照24小时制显示。 从API version 5开始，默认值会依据系统当前所选地区和语言选择当地习惯的小时制(12小时制或24小时制)。 |
+
+### 日期选择器
+
+ 支持设备PhonePC/2in1TabletTVWearable展开
+
+| 名称 | 类型 | 默认值 | 必填 | 描述 |
+| --- | --- | --- | --- | --- |
+| start | <time> | 1970-1-1 | 否 | 设置日期选择器的起始时间，格式为 YYYY-MM-DD。 |
+| end | <time> | 2100-12-31 | 否 | 设置日期选择器的结束时间，格式为 YYYY-MM-DD。 |
+| selected | string | 当前日期 | 否 | 设置日期选择器的默认选择值，格式为 YYYY-MM-DD。 |
+| lunar 5+ | boolean | false | 否 | 设置日期选择器弹窗界面是否为农历展示。 默认值：false，表示设置日期选择器弹窗界面为公历展示。 |
+| lunarswitch | boolean | false | 否 | 设置日期选择器是否显示农历开关，显示农历开关时，可以在弹窗界面通过农历开关进行公历和农历切换。在设置显示农历时，开关状态为开，当设置不显示农历时，开关状态为关。 |
+
+### 日期时间选择器
+
+ 支持设备PhonePC/2in1TabletTVWearable展开
+
+| 名称 | 类型 | 默认值 | 必填 | 描述 |
+| --- | --- | --- | --- | --- |
+| selected | string | 当前日期时间 | 否 | 设置日期时间选择器的默认取值，格式有两种，为月日时分MM-DD-HH-mm或者年月日时分YYYY-MM-DD-HH-mm，不设置年时，默认使用当前年，该取值表示选择器弹窗时弹窗界面的默认选择值。 |
+| hours | number | 24 1-4 - 5+ | 否 | 设置日期时间选择器采用的时间格式，可选值： - 12：按照12小时制显示，用上午和下午进行区分； - 24：按照24小时制显示。 从API version 5开始，默认值会依据系统当前所选地区和语言选择当地习惯的小时制(12小时制或24小时制)。 |
+| lunar 5+ | boolean | false | 否 | 设置日期时间选择器弹窗界面是否为农历展示。 默认值：false，表示设置日期选择器弹窗界面为公历展示。 |
+| lunarswitch | boolean | false | 否 | 设置日期时间选择器是否显示农历开关，显示农历开关时，可以在弹窗界面展现农历开关以便公历和农历切换。在设置显示农历时，开关状态为开，当设置不显示农历时，开关状态为关。 |
+
+### 多列文本选择器
+
+ 支持设备PhonePC/2in1TabletTVWearable展开
+
+| 名称 | 类型 | 默认值 | 必填 | 描述 |
+| --- | --- | --- | --- | --- |
+| columns | number | - | 是 | 设置多列文本选择器的列数。 |
+| range | 二维Array | - | 否 | 设置多列文本选择器的选择值，该值为二维数组。长度表示多少列，数组的每项表示每列的数据，如  [["a","b"], ["c","d"]]。 使用时需要使用数据绑定的方式range ={{data}}，js中声明相应变量data：["15","20","25"]。 |
+| selected | Array | [0,0,0,…] | 否 | 设置多列文本选择器的默认值，每一列被选中项对应的索引构成的数组，该取值表示选择器弹窗时弹窗界面的默认选择值。 |
+
+## 样式
+
+支持设备PhonePC/2in1TabletTVWearable
+
+除支持[通用样式](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-common-styles)外，还支持如下样式：
+
+ 展开
+
+| 名称 | 类型 | 默认值 | 必填 | 描述 |
+| --- | --- | --- | --- | --- |
+| color | <color> | #ffffff | 否 | 候选项字体颜色。 |
+| font-size | <length> | 16px | 否 | 候选项字体尺寸，类型length，单位px。 |
+| selected-color | <color> | #ff0a69f7 | 否 | 选中项字体颜色。 |
+| selected-font-size | <length> | 20px | 否 | 选中项字体尺寸，类型length，单位px。 |
+| disappear-color 5+ | <color> | #ffffff | 否 | 渐变消失项的字体颜色。消失项是在一列中有五个选项场景下最上和最下的两个选项。 |
+| disappear-font-size 5+ | <length> | 14px | 否 | 渐变消失项的字体尺寸。消失项是在一列中有五个选项场景下最上和最下的两个选项。 |
+| font-family | string | sans-serif | 否 | 选项字体类型。字体列表，用逗号分隔，每个字体用字体名或者字体族名设置。列表中第一个系统中存在的或者通过 自定义字体 指定的字体，会被选中作为文本的字体。 |
+
+## 事件
+
+支持设备PhonePC/2in1TabletTVWearable
+
+仅支持如下事件：
+
+### 文本选择器
+
+ 支持设备PhonePC/2in1TabletTVWearable展开
+
+| 名称 | 参数 | 描述 |
+| --- | --- | --- |
+| change | { newValue: newValue, newSelected: newSelected } | 文本选择器选定值后触发该事件。 |
+
+### 时间选择器
+
+ 支持设备PhonePC/2in1TabletTVWearable展开
+
+| 名称 | 参数 | 描述 |
+| --- | --- | --- |
+| change | { hour: hour, minute: minute, [second:second]} | 时间选择器选定值后触发该事件。 包含秒时，返回时分秒。 |
+
+### 日期选择器
+
+ 支持设备PhonePC/2in1TabletTVWearable展开
+
+| 名称 | 参数 | 描述 |
+| --- | --- | --- |
+| change | { year:year, month:month, day:day } | 日期选择器选择值后触发该事件。 |
+
+### 日期时间选择器
+
+ 支持设备PhonePC/2in1TabletTVWearable展开
+
+| 名称 | 参数 | 描述 |
+| --- | --- | --- |
+| change | { year:year, month:month, day:day,  hour:hour, minute:minute } | 日期时间选择器选择值后触发该事件。 |
+
+### 多列文本选择器
+
+ 支持设备PhonePC/2in1TabletTVWearable展开
+
+| 名称 | 参数 | 描述 |
+| --- | --- | --- |
+| columnchange | { column:column, newValue:newValue, newSelected:newSelected } | 多列文本选择器某一列的值改变时触发该事件，column：第几列修改，newValue：选中的值，newSelected：选中值对应的索引。 |
+
+## 方法
+
+支持设备PhonePC/2in1TabletTVWearable
+
+不支持。
+
+## 示例
+
+支持设备PhonePC/2in1TabletTVWearable 
+
+### 文本选择器
+
+支持设备PhonePC/2in1TabletTVWearable
+
+```
+<!-- xxx.hml -->
+<div class="container">
+    <text class="title">
+        选中值：{{value}}  选中下标： {{index}}
+    </text>
+    <picker-view class="text-picker" type="text" range="{{options}}" selected="0" indicatorprefix="prefix" indicatorsuffix="suffix" @change="handleChange"></picker-view>
+</div>
+```
+
+```
+/* xxx.css */
+.container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50%;
+}
+.title {
+    font-size: 30px;
+    text-align: center;
+    margin-top: 50%;
+}
+```
+
+```
+/* xxx.js */
+export default {
+    data: {
+        options: ['选项1', '选项2', '选项3'],
+        value: "选项1",
+        index: 0
+    },
+    handleChange(data) {
+        this.value = data.newValue;
+        this.index = data.newSelected;
+    },
+}
+```
+
+![image](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20260224170916.53792625471702420712929662755012:50001231000000:2800:503E2888C5780E02EED0A2A4BEF90689B32C289CAE27A67C7E393DFB201B3E71.gif)
+
+### 时间选择器
+
+支持设备PhonePC/2in1TabletTVWearable
+
+```
+<!-- xxx.hml -->
+<div class="container">
+  <text class="title">
+    Selected：{{time}}
+  </text>
+  <picker-view class="time-picker" type="time" selected="{{defaultTime}}" @change="handleChange"></picker-view>
+</div>
+```
+
+```
+/* xxx.css */
+.container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50%;
+}
+.title {
+    font-size: 31px;
+    text-align: center;
+    margin-top: 50%;
+}
+```
+
+```
+/* xxx.js */
+export default {
+  data: {
+    defaultTime: "",
+    time: "",
+  },
+  onInit() {
+    this.defaultTime = this.now();
+  },
+  handleChange(data) {
+    this.time = this.concat(data.hour, data.minute);
+  },
+  now() {
+    const date = new Date();
+    const hours = date.getHours();
+    const minutes = date.getMinutes();
+    return this.concat(hours, minutes);
+  },
+  fill(value) {
+    return (value > 9 ? "" : "0") + value;
+  },
+  concat(hours, minutes) {
+    return `${this.fill(hours)}:${this.fill(minutes)}`;
+  },
+}
+```
+
+![image](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20260224170916.57437602911074771747843430851062:50001231000000:2800:A29D4FAC176AE566273DC06189DF96D5B12C0F9120840AB41D9E7C6D8DA1FE43.png)
+
+### 日期选择器
+
+支持设备PhonePC/2in1TabletTVWearable
+
+```
+<!-- xxx.hml -->
+<div class="container">
+    <text class="title">
+        Selected：{{date}}
+    </text>
+    <picker-view class="time-picker" type="date" selected="{{defaultTime}}" @change="handleChange" lunarswitch="true"></picker-view>
+</div>
+```
+
+```
+/* xxx.css */
+.container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50%;
+}
+.title {
+    font-size: 31px;
+    text-align: center;
+    margin-top: 50%;
+}
+```
+
+```
+/* xxx.js */
+export default {
+    data: {
+        date: "",
+    },
+    handleChange(data) {
+        this.date = data.year + "年" + data.month + "月" + data.day + "日";
+    },
+}
+```
+
+![image](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20260224170916.27793505174866218322915870213253:50001231000000:2800:BFB0076DB2E095EA8E93663F93B6B4ED684901CE7F278530AACF0FCBB8BF6A22.png)
+
+### 日期时间选择器
+
+支持设备PhonePC/2in1TabletTVWearable
+
+```
+<!-- xxx.hml -->
+<div class="container">
+    <text class="title">
+        Selected：{{datetime}}
+    </text>
+    <picker-view class="date-picker" type="datetime"  hours="24" lunarswitch="true" @change="handleChange"></picker-view>
+</div>
+```
+
+```
+/* xxx.css */
+.container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50%;
+}
+.title {
+    font-size: 31px;
+    text-align: center;
+    margin-top: 50%;
+}
+```
+
+```
+/* xxx.js */
+export default {
+    data: {
+        datetime: "",
+    },
+    handleChange(data) {
+        this.datetime = data.year + "年" + data.month + "月" + data.day + "日" + data.hour + "时" + data.minute + "分";
+    },
+}
+```
+
+![image](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20260224170916.82839356065366508913747434221278:50001231000000:2800:B325AD5235DB4BF01EF678532059099D2647F25AA821829145AD11C76267F0B2.png)
+
+### 多列文本选择器
+
+支持设备PhonePC/2in1TabletTVWearable
+
+```
+<!-- xxx.hml -->
+<div class="container">
+    <text class="title">
+        Selected：{{ value }}
+    </text>
+    <picker-view class="multitype-picker" type="multi-text" columns="3" range="{{ multitext }}" @columnchange="handleChange"></picker-view>
+</div>
+```
+
+```
+/* xxx.css */
+.container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50%;
+}
+.title {
+    font-size: 31px;
+    text-align: center;
+    margin-top: 50%;
+}
+```
+
+```
+/* xxx.js */
+export default {
+    data: {
+        multitext: [
+            [1, 2, 3],
+            [4, 5, 6],
+            [7, 8, 9],
+        ],
+        value: ""
+    },
+    handleChange(data) {
+        this.value = data.column + "列，" + "值为" + data.newValue + "，下标为" + data.newSelected;
+    },
+}
+```
+
+![image](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20260224170916.61321311435784101229685695456230:50001231000000:2800:F7A679A53CA1467C6492F55470A9AFD6DC144D2536847E31BD5270606FB4DF75.png)

@@ -1,0 +1,86 @@
+# Launch模板基本操作
+
+开发应用或元服务过程中，启动速度是很重要的一个指标。如果开发者需要分析启动过程的耗时瓶颈，优化应用或元服务的冷启动速度，可使用DevEco Profiler提供的Launch场景分析能力，录制启动过程中的关键数据进行分析，从而识别出导致启动缓慢的原因所在。此外，Launch任务窗口还集成了Time、CPU、Frame、Network场景分析任务的功能，方便开发者在分析启动耗时的过程中同步对比同一时段的其他资源占用情况。
+
+此处仅介绍“Launch”泳道相关内容，集成的Time、CPU、Frame、Network场景分析任务的功能请参考对应任务的章节。
+
+ 说明
+
+- 不支持命令拉起的Release应用不能进行Launch分析。
+- 锁屏状态下可进行Launch录制。
+
+## 启动模式
+
+启动模式分为![image](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20260226102116.30203640558076011874554459747898:50001231000000:2800:0B016CE9928EDB11CD33E3A3BC6A28D143DBEE8523BC61CEE2B751C755C3EB7D.png)自动启动和![image](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20260226102116.69832806074293391794597487260373:50001231000000:2800:E1A685C1C042E92BA0760F8DEDAFED75D788D74A28412487AB1133CD6477FEC5.png)手动启动，可点击图标切换两种不同模式：
+
+- 若选择自动启动模式，当用户使用Launch模板并开始录制时，将主动重启所选应用；
+- 手动启动模式在开始录制时，只会主动终止所选应用，等待界面出现弹窗提示启动应用后，开发者需要手动启动应用。
+
+## 查看启动过程中各阶段的耗时情况
+
+1. 创建Launch场景调优分析任务并录制相关数据，操作方法可参考[性能问题定位：深度录制](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/deep-recording)，或在会话区选择**Open File**，导入历史数据。
+
+说明
+
+  - 在任务分析窗口，可以通过“Ctrl+鼠标滚轮”缩放时间轴，通过“Shift+鼠标滚轮”左右移动时间轴。或使用快捷键W/S放大或缩小时间轴，使用A键/D键可以左右移动时间轴。
+  - 将鼠标悬停在泳道任意位置，可以通过M键添加单点时间标签。
+  - 鼠标框选要关注的时间段，可以通过“Shift+M”添加时间段时间标签。
+  - 在任务分析窗口，可以通过“Ctrl+, ”向前选中单点时间标签，通过“Ctrl+. ”向后选中单点时间标签。
+  - 在任务分析窗口，可以通过“Ctrl+[ ”向前选中时间段时间标签，通过“Ctrl+]”向后选中时间段时间标签。
+  - Launch分析支持离线符号解析能力，请参见[离线符号解析](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-insight-session-time#section186881175012)。
+  - Launch分析支持动效场景调优，请参见[支持动效场景调优](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-insight-session-frame#section258014238619)。
+
+Launch分析任务支持在录制前单击![image](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20260226102116.35187672018680581528498923419131:50001231000000:2800:E579E5A60D6150CD48B77D936B679C429CECBBD7389EA8ACF85A47989E4BFAA9.png)指定要录制的泳道。“Launch”泳道显示启动生命周期各阶段的耗时分布情况。
+2. 单击“Launch”泳道上的单个阶段，或框选多个阶段，在下方的“Details”页签中，可查看到所选阶段的耗时统计情况。
+
+展开各阶段的统计信息折叠表，可以看到各个任务的具体耗时信息。单击跳转按钮，可直接跳转至相关线程打点任务中。
+
+![image](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20260226102116.79900133485662765258301168812439:50001231000000:2800:76B2F8800D138FC403F5ED04BCE263D339388E1E933DD9B1059AFF0DDF975556.png)
+3. 切换到“Load ETS Files”页签，从DevEco Studio 6.0.0 Beta1版本开始，支持查看冷启动过程中ETS文件的加载情况。各字段含义如下：
+
+  - Category：该ETS文件在应用启动过程中是否被使用。
+  - Weight**：**该ETS文件加载子节点文件（不包括自身）的总耗时。
+  - Self：该ETS文件自身加载的耗时。
+  - Import Count：该ETS文件被其他文件导入的次数。
+  - File Name：该ETS文件的名称。
+  - Path：该ETS文件构建产物的路径。
+
+![image](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20260226102116.44289139141866366811663605024183:50001231000000:2800:89709E4ABD0365DBEB99088C813F44B034614545E7E257359E58091A81ED0318.png)
+4. 切换到“TOP Redundant”页签，可查看冷启动过程中TOP 100冗余ETS加载文件信息。若File Name字段显示为蓝色，双击可快速跳转至对应工程源文件。
+
+![image](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20260226102116.34609700050490531154074234843745:50001231000000:2800:DBED184343FC323F1956C37DEA10E8450CE3436833A67E9E26C477ADCAA7D547.png)
+
+ 说明
+
+已上架应用市场的应用，不支持使用Load ETS Files或TOP Redundant页签查看冷启动过程中ETS文件的加载情况。
+
+## 分析静态资源库加载耗时
+
+1. 展开“Launch”泳道，其中的“Static Initialization”子泳道展示启动过程中各静态资源库的加载耗时。
+2. 单击单个静态资源库色块，或框选多个静态资源库，下方的“Details”区域展示所选对象的耗时统计信息。
+
+针对耗时超过预期的加载任务，可单击跳转按钮，跳转至相关线程打点任务中进行深度分析。
+
+![image](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20260226102116.73506837401353651074261173022097:50001231000000:2800:0D3A66BE6C36A49EBFDC05B5A8BFCFD77824111A1DADEDC4779E6816A9388EF6.png)
+
+## 查看核心线程在CPU Core的运行情况
+
+1. 展开“Launch”泳道，其中的“Running CPU Cores”子泳道展示启动过程中的关键线程具体运行在哪个CPU核心。
+2. 单击单个进程色块，或框选多个进程，下方的“Details”区域展示所选对象的运行情况统计信息。
+
+单击对应CPU的跳转按钮，可进一步跳转到CPU Core泳道查看详细的调度信息。
+
+![image](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20260226102116.92085889321969882722076444686131:50001231000000:2800:4A8731AEAB153E6E4C2AE4B8A8E2E2CA5322C8BCBC38BFC4B6BD477884756419.png)
+
+## 查看启动过程相关的线程Trace数据
+
+1. 展开“Launch”泳道，除“Static Initialization”、“Running CPU Cores”外，还包含启动过程的关键线程的状态和Trace数据。
+2. 单击单个切片色块，或框选多个切片，可查看所选对象的详情。
+
+  - “Details”区域对所选对象进行树状统计，显示任务的名称、起始时间以及耗时信息。
+  - “Thread States”区域展示线程的状态统计信息。
+  - “Thread Usage”区域展示线程的使用情况。
+  - “Slice List”区域展示所选对象的切片统计信息。
+  - “Load Statistics”区域展示所选对象的中载重载信息。
+
+![image](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20260226102116.75388147306294581706281228406544:50001231000000:2800:64A7987571D7FBBF638773D38D38145E2A163B0D37AC0C29D1204368E5E0CCE0.png)

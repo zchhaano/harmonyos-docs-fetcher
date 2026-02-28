@@ -1,0 +1,41 @@
+# @typescript-eslint/no-array-constructor
+
+不允许使用“Array”构造函数。
+
+## 规则配置
+
+收起自动换行深色代码主题复制
+
+```
+// code-linter.json5 { "rules" : { "@typescript-eslint/no-array-constructor" : "error" } }
+```
+
+## 选项
+
+该规则无需配置额外选项。
+
+## 正例
+
+收起自动换行深色代码主题复制
+
+```
+const length = 500 ; Array (length); export const newArr : number [] = new Array ([ '1' ]. length ); export const arr = [ '0' , '1' , '2' ]; export const createArray = ( array: string ) => new Array (array. length );
+```
+
+## 反例
+
+收起自动换行深色代码主题复制
+
+```
+Array (); Array ( '0' , '1' , '2' ); new Array ( '0' , '1' , '2' );
+```
+
+## 规则集
+
+收起自动换行深色代码主题复制
+
+```
+plugin :@ typescript - eslint / all
+```
+
+Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。

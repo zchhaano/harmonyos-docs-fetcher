@@ -1,0 +1,51 @@
+# 禁用控制
+
+说明 
+
+ 从API version 7开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。
+
+ 禁用控制属性仅在按下时生效，交互过程中更改enabled属性无效。
+
+## enabled
+
+支持设备PhonePC/2in1TabletTVWearable
+
+enabled(value: boolean): T
+
+设置组件是否可交互。当未设置enabled时，组件默认可交互。
+
+**卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
+
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**参数：**
+
+ 展开
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| value | boolean | 是 | 值为true表示组件可交互，响应点击等操作。 值为false表示组件不可交互，不响应点击等操作。 |
+
+**返回值：**
+
+ 展开
+
+| 类型 | 说明 |
+| --- | --- |
+| T | 返回当前组件。 |
+
+## 示例
+
+支持设备PhonePC/2in1TabletTVWearable
+
+该示例通过enabled设置按钮可交互性。
+
+ 收起自动换行深色代码主题复制
+
+```
+// xxx.ets @Entry @Component struct EnabledExample { build ( ) { Flex ({ justifyContent : FlexAlign . SpaceAround }) { // 点击时无响应 Button ( 'disable' ). enabled ( false ). backgroundColor ( 0x317aff ). opacity ( 0.4 ) Button ( 'enable' ). backgroundColor ( 0x317aff ) } . width ( '100%' ) . padding ({ top : 5 }) } }
+```
+
+![image](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20260224170805.60844395471414113038089718537745:50001231000000:2800:EB5897CAA2DA445F3B5B8F3EBFE3486D6CF144D130A9E87BE7C27E1DA0CEE9DF.gif)

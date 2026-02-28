@@ -1,0 +1,30 @@
+# Hid_RelAxesArray
+
+```
+typedef struct Hid_RelAxesArray {...} Hid_RelAxesArray
+```
+
+## 概述
+
+支持设备PC/2in1
+
+相对坐标属性数组。
+
+**起始版本：** 11
+
+**相关模块：** [HidDdk](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-hidddk)
+
+**所在头文件：** [hid_ddk_types.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-hid-ddk-types-h)
+
+## 汇总
+
+支持设备PC/2in1 
+
+### 成员变量
+
+ 支持设备PC/2in1展开
+
+| 名称 | 描述 |
+| --- | --- |
+| Hid_RelAxes* hidRelAxes | 相对坐标属性编码 |
+| uint16_t length | 数组长度 |

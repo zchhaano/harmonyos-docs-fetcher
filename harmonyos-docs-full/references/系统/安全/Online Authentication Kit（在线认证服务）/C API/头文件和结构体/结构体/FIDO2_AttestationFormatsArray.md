@@ -1,0 +1,50 @@
+## 概述
+
+支持设备PhonePC/2in1Tablet
+
+依赖方的数组可以使用此成员指定一个关于认证方使用的证明语句格式的首选项。
+
+**起始版本：** 6.0.0(20)
+
+**相关模块：** [FIDO2](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/passkey)
+
+## 汇总
+
+支持设备PhonePC/2in1Tablet 
+
+### 成员变量
+
+ 支持设备PhonePC/2in1Tablet展开
+
+| 名称 | 描述 |
+| --- | --- |
+| uint32_t attestationFormatsNum | PubKeyCredParam个数。 |
+| char ** attestationFormats | 认证凭据的附加参数列表。 |
+
+## 结构体成员变量说明
+
+支持设备PhonePC/2in1Tablet 
+
+### attestationFormats
+
+支持设备PhonePC/2in1Tablet收起自动换行深色代码主题复制
+
+```
+char ** FIDO2_AttestationFormatsArray::attestationFormats
+```
+
+**描述**
+
+认证凭据的附加参数列表。
+
+### attestationFormatsNum
+
+支持设备PhonePC/2in1Tablet收起自动换行深色代码主题复制
+
+```
+uint32_t FIDO2_AttestationFormatsArray::attestationFormatsNum
+```
+
+**描述**
+
+认证凭据的附加参数列表长度。

@@ -1,0 +1,31 @@
+# Scan_PictureScanProgress
+
+```
+typedef struct {...} Scan_PictureScanProgress
+```
+
+## 概述
+
+支持设备PhonePC/2in1Tablet
+
+表示扫描仪扫描图片的进度
+
+**起始版本：** 12
+
+**相关模块：** [OH_Scan](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-scan)
+
+**所在头文件：** [ohscan.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohscan-h)
+
+## 汇总
+
+支持设备PhonePC/2in1Tablet 
+
+### 成员变量
+
+ 支持设备PhonePC/2in1Tablet展开
+
+| 名称 | 描述 |
+| --- | --- |
+| int32_t progress | 图片进度，从0到100 |
+| int32_t fd | 扫描仪文件句柄 |
+| bool isFinal | 指示该图像是否为最后扫描的图像。true表示该图像是最后扫描的图像，false表示该图像不是最后扫描的图像。 |

@@ -1,0 +1,747 @@
+# AlphabetIndexer
+
+可以与容器组件联动用于按逻辑结构快速定位容器显示区域的组件。
+
+ 说明 
+
+该组件从API version 7开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。
+
+## 子组件
+
+ 支持设备PhonePC/2in1TabletTVWearable
+
+无
+
+## 接口
+
+ 支持设备PhonePC/2in1TabletTVWearable
+
+AlphabetIndexer(options: AlphabetIndexerOptions)
+
+创建索引条组件。
+
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**参数：**
+
+  展开
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| options | AlphabetIndexerOptions | 是 | 设置索引条组件参数。 |
+
+## AlphabetIndexerOptions 18+ 对象说明
+
+ 支持设备PhonePC/2in1TabletTVWearable
+
+用于设置索引条参数。
+
+ 说明 
+
+为规范匿名对象的定义，API 18版本修改了此处的元素定义。其中，保留了历史匿名对象的起始版本信息，会出现外层元素@since版本号高于内层元素版本号的情况，但这不影响接口的使用。
+
+**元服务API：** 从API version 18开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+  展开
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| arrayValue 7+ | Array<string> | 否 | 否 | 字符串数组，每个字符串代表一个索引项。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| selected 7+ | number | 否 | 否 | 初始选中项索引值，若超出索引值范围，则取默认值0。 该参数支持 $$ 双向绑定变量。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+
+## 属性
+
+ 支持设备PhonePC/2in1TabletTVWearable
+
+[width](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-size#width)属性设置"auto"时表示自适应宽度，宽度会随索引项最大宽度变化。
+
+[padding](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-size#padding)属性默认为4vp。
+
+文本最大的字体缩放倍数[maxFontScale](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-text#maxfontscale12)和最小的字体缩放倍数[minFontScale](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-text#minfontscale12)皆为1，不跟随系统字体大小调节变化。
+
+除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)外，还支持以下属性：
+
+### color
+
+ 支持设备PhonePC/2in1TabletTVWearable
+
+color(value: ResourceColor)
+
+设置未选中项文本颜色。
+
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**参数：**
+
+  展开
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| value | ResourceColor | 是 | 未选中项文本颜色。 默认值：0x99182431，显示为略带透明的棕色。 |
+
+### selectedColor
+
+ 支持设备PhonePC/2in1TabletTVWearable
+
+selectedColor(value: ResourceColor)
+
+设置选中项文本颜色。
+
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**参数：**
+
+  展开
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| value | ResourceColor | 是 | 选中项文本颜色。 默认值：0xFF007DFF，显示为蓝色。 |
+
+### popupColor
+
+ 支持设备PhonePC/2in1TabletTVWearable
+
+popupColor(value: ResourceColor)
+
+设置提示弹窗一级索引项文本颜色。
+
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**参数：**
+
+  展开
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| value | ResourceColor | 是 | 提示弹窗一级索引项文本颜色。 默认值：0xFF007DFF，显示为蓝色。 |
+
+### selectedBackgroundColor
+
+ 支持设备PhonePC/2in1TabletTVWearable
+
+selectedBackgroundColor(value: ResourceColor)
+
+设置选中项背景颜色。
+
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**参数：**
+
+  展开
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| value | ResourceColor | 是 | 选中项背景颜色。 默认值：0x1A007DFF，显示为半透明的蓝绿色。 |
+
+### popupBackground
+
+ 支持设备PhonePC/2in1TabletTVWearable
+
+popupBackground(value: ResourceColor)
+
+设置提示弹窗背景颜色。
+
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**参数：**
+
+  展开
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| value | ResourceColor | 是 | 提示弹窗背景颜色。 弹窗的背景模糊材质效果会对背景色产生影响，可通过设置 popupBackgroundBlurStyle 属性值为NONE关闭背景模糊材质效果。 默认值： API version 11及以前：0xFFFFFFFF，显示为白色。 API version 12及以后：#66808080，显示为半透明的灰色。 |
+
+### usingPopup
+
+ 支持设备PhonePC/2in1TabletTVWearable
+
+usingPopup(value: boolean)
+
+设置是否显示提示弹窗。
+
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**参数：**
+
+  展开
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| value | boolean | 是 | 是否显示提示弹窗。 默认值：false true：显示提示弹窗。 false：不显示提示弹窗。 |
+
+### selectedFont
+
+ 支持设备PhonePC/2in1TabletTVWearable
+
+selectedFont(value: Font)
+
+设置选中项文本样式。
+
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**参数：**
+
+  展开
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| value | Font | 是 | 选中项文本样式。 默认值： API version 11及以前： { size:'12.0fp', style:FontStyle.Normal, weight:FontWeight.Regular, family:'HarmonyOS Sans' } API version 12及以后： { size:'10.0vp', style:FontStyle.Normal, weight:FontWeight.Medium, family:'HarmonyOS Sans' } |
+
+### popupFont
+
+ 支持设备PhonePC/2in1TabletTVWearable
+
+popupFont(value: Font)
+
+设置提示弹窗一级索引文本样式。
+
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**参数：**
+
+  展开
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| value | Font | 是 | 提示弹窗一级索引文本样式。 默认值： { size:'24.0vp', style:FontStyle.Normal, weight:FontWeight.Medium, family:'HarmonyOS Sans' } |
+
+### font
+
+ 支持设备PhonePC/2in1TabletTVWearable
+
+font(value: Font)
+
+设置未选中项文本样式。
+
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**参数：**
+
+  展开
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| value | Font | 是 | 未选中索引项文本样式。 默认值： API version 11及以前： { size:'12.0fp', style:FontStyle.Normal, weight:FontWeight.Regular, family:'HarmonyOS Sans' } API version 12及以后： { size:'10.0vp', style:FontStyle.Normal, weight:FontWeight.Medium, family:'HarmonyOS Sans' } |
+
+### itemSize
+
+ 支持设备PhonePC/2in1TabletTVWearable
+
+itemSize(value: string | number)
+
+设置索引项区域大小。
+
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**参数：**
+
+  展开
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| value | string \| number | 是 | 索引项区域大小，索引项区域为正方形，即正方形边长。不支持设置为百分比。 实际取值会受到组件尺寸的约束，索引项宽度最大为组件宽度-左右 padding ，索引项高度最大为（组件高度-上下 padding ）/索引项个数。传入值小于等于0时，按照默认值处理。 默认值：16.0 单位：vp |
+
+### alignStyle
+
+ 支持设备PhonePC/2in1TabletTVWearable
+
+alignStyle(value: IndexerAlign, offset?: Length)
+
+设置索引条提示弹窗的对齐样式。
+
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**参数：**
+
+  展开
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| value | IndexerAlign | 是 | 索引条提示弹窗的对齐样式，支持弹窗显示在索引条右侧和左侧。 默认值：IndexerAlign.END |
+| offset 10+ | Length | 否 | 提示弹窗与索引条之间间距，大于等于0为有效值，在不设置或设置为小于0的情况下间距与popupPosition.x相同。与 popupPosition 同时设置时，水平方向上offset生效，竖直方向上popupPosition.y生效。 |
+
+### selected 8+
+
+ 支持设备PhonePC/2in1TabletTVWearable
+
+selected(index: number)
+
+设置选中项索引值。
+
+从API version 10开始，该参数支持[$$](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-two-way-sync)双向绑定变量。
+
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**参数：**
+
+  展开
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| index | number | 是 | 选中项索引值。 默认值：0 |
+
+### popupPosition 8+
+
+ 支持设备PhonePC/2in1TabletTVWearable
+
+popupPosition(value: Position)
+
+设置弹出窗口相对于索引条上边框中点的位置。
+
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**参数：**
+
+  展开
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| value | Position | 是 | 弹出窗口相对于索引条上边框中点的位置。 默认值：{x: 60.0, y: 48.0} |
+
+### popupSelectedColor 10+
+
+ 支持设备PhonePC/2in1TabletTVWearable
+
+popupSelectedColor(value: ResourceColor)
+
+设置提示弹窗二级索引选中项文本颜色。
+
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**参数：**
+
+  展开
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| value | ResourceColor | 是 | 提示弹窗二级索引选中项文本颜色。 默认值：#FF182431，显示为深暗蓝色。 |
+
+### popupUnselectedColor 10+
+
+ 支持设备PhonePC/2in1TabletTVWearable
+
+popupUnselectedColor(value: ResourceColor)
+
+设置提示弹窗二级索引未选中项文本颜色。
+
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**参数：**
+
+  展开
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| value | ResourceColor | 是 | 提示弹窗二级索引未选中项文本颜色。 默认值：#FF182431，显示为深暗蓝色。 |
+
+### popupItemFont 10+
+
+ 支持设备PhonePC/2in1TabletTVWearable
+
+popupItemFont(value: Font)
+
+设置提示弹窗二级索引项文本样式。
+
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**参数：**
+
+  展开
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| value | Font | 是 | 提示弹窗二级索引项文本样式。 默认值： { size:24, weight:FontWeight.Medium } |
+
+### popupItemBackgroundColor 10+
+
+ 支持设备PhonePC/2in1TabletTVWearable
+
+popupItemBackgroundColor(value: ResourceColor)
+
+设置提示弹窗二级索引项背景颜色。
+
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**参数：**
+
+  展开
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| value | ResourceColor | 是 | 提示弹窗二级索引项背景颜色。 默认值： API version 11及以前：#FFFFFFFF，显示为白色。 API version 12及以后：#00000000，显示为黑色。 |
+
+### autoCollapse 11+
+
+ 支持设备PhonePC/2in1TabletTVWearable
+
+autoCollapse(value: boolean)
+
+设置是否使用自适应折叠模式。
+
+如果索引项第一项为“#”，当除去第一项后剩余索引项数量 <= 9时，选择全显示模式；9 < 剩余索引项数量 <= 13时，根据索引条高度自适应选择全显示模式或者短折叠模式；剩余索引项数量 > 13时，根据索引条高度自适应选择短折叠模式或者长折叠模式。
+
+如果索引项第一项不为“#”，当所有索引项数量 <= 9时，选择全显示模式；9 < 所有索引项数量 <= 13时，根据索引条高度自适应选择全显示模式或者短折叠模式；所有索引项数量 > 13时，根据索引条高度自适应选择短折叠模式或者长折叠模式。
+
+ 说明 
+
+从API version 12开始，该接口支持在[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)中调用。
+
+**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**参数：**
+
+  展开
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| value | boolean | 是 | 是否使用自适应折叠模式。 默认值： API version 12之前：false API version 12及之后：true true：使用自适应折叠模式。 false：不使用自适应折叠模式。 |
+
+### popupItemBorderRadius 12+
+
+ 支持设备PhonePC/2in1TabletTVWearable
+
+popupItemBorderRadius(value: number)
+
+设置提示弹窗索引项背板圆角半径。
+
+**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**参数：**
+
+  展开
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| value | number | 是 | 设置提示弹窗索引项背板圆角半径。 默认值：24vp 不支持百分比，小于0时按照0设置。 提示弹窗背板圆角自适应变化（索引项圆角半径+4vp）。 |
+
+### itemBorderRadius 12+
+
+ 支持设备PhonePC/2in1TabletTVWearable
+
+itemBorderRadius(value: number)
+
+设置索引项背板圆角半径。
+
+**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**参数：**
+
+  展开
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| value | number | 是 | 设置索引项背板圆角半径。 默认值：8vp 不支持百分比，小于0时按照0设置。 索引条背板圆角自适应变化（索引项圆角半径+4vp）。 |
+
+### popupBackgroundBlurStyle 12+
+
+ 支持设备PhonePC/2in1TabletTVWearable
+
+popupBackgroundBlurStyle(value: BlurStyle)
+
+设置提示弹窗的背景模糊材质。未通过该接口设置时，默认为组件普通材质模糊，对应取值为BlurStyle中的COMPONENT_REGULAR。
+
+**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**参数：**
+
+  展开
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| value | BlurStyle | 是 | 设置提示弹窗的背景模糊材质。 弹窗的背景模糊材质效果会对背景色 popupBackground 产生影响，可通过设置属性值为NONE关闭背景模糊材质效果。 |
+
+### popupTitleBackground 12+
+
+ 支持设备PhonePC/2in1TabletTVWearable
+
+popupTitleBackground(value: ResourceColor)
+
+设置提示弹窗一级索引项背景颜色。
+
+**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**参数：**
+
+  展开
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| value | ResourceColor | 是 | 设置提示弹窗一级索引项背景颜色。 默认值： 提示弹窗只有一个索引项：#00FFFFFF。 提示弹窗有多个索引项：#0c182431。 |
+
+### enableHapticFeedback 12+
+
+ 支持设备PhonePC/2in1TabletTVWearable
+
+enableHapticFeedback(value: boolean)
+
+设置是否开启触控反馈。
+
+**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**参数：**
+
+  展开
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| value | boolean | 是 | 是否支持触控反馈。 true：支持触控反馈。 false：不支持触控反馈。 默认值：true 开启触控反馈时，需要在工程的 module.json5 中配置requestPermissions字段开启振动权限，配置如下： "requestPermissions": [{"name": "ohos.permission.VIBRATE"}] |
+
+## IndexerAlign枚举说明
+
+ 支持设备PhonePC/2in1TabletTVWearable
+
+索引条提示弹窗的对齐样式枚举。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+  展开
+
+| 名称 | 值 | 说明 |
+| --- | --- | --- |
+| Left | 0 | 提示弹窗显示在索引条右侧。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| Right | 1 | 提示弹窗显示在索引条左侧。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| START 12+ | 2 | 在从左到右（LTR）场景下，提示弹窗显示在索引条右侧的位置。在RTL场景下，提示弹窗显示在索引条左侧的位置。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| END 12+ | 3 | 在从左到右（LTR）场景下，提示弹窗显示在索引条左侧的位置。在RTL场景下，提示弹窗显示在索引条右侧的位置。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+
+## 事件
+
+ 支持设备PhonePC/2in1TabletTVWearable
+
+除支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)外，还支持以下事件：
+
+### onSelected (deprecated)
+
+ 支持设备PhonePC/2in1TabletTVWearable
+
+onSelected(callback: (index: number) => void)
+
+索引项选中事件，回调参数为当前选中项索引。
+
+ 说明 
+
+从API version 7开始支持，从API version 8开始废弃，建议使用[onSelect](/consumer/cn/doc/harmonyos-references/ts-container-alphabet-indexer#onselect8)替代。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**参数：**
+
+  展开
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| index | number | 是 | 当前选中的索引。 |
+
+### onSelect 8+
+
+ 支持设备PhonePC/2in1TabletTVWearable
+
+onSelect(callback: OnAlphabetIndexerSelectCallback)
+
+索引项选中事件，回调参数为当前选中项索引。
+
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**参数：**
+
+  展开
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| callback | OnAlphabetIndexerSelectCallback | 是 | 索引项选中事件。 |
+
+### onRequestPopupData 8+
+
+ 支持设备PhonePC/2in1TabletTVWearable
+
+onRequestPopupData(callback: OnAlphabetIndexerRequestPopupDataCallback)
+
+设置提示弹窗二级索引项内容事件，回调参数为当前选中项索引，回调返回值为提示弹窗需显示的二级索引项内容。
+
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**参数：**
+
+  展开
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| callback | OnAlphabetIndexerRequestPopupDataCallback | 是 | 设置提示弹窗二级索引项内容事件。 |
+
+### onPopupSelect 8+
+
+ 支持设备PhonePC/2in1TabletTVWearable
+
+onPopupSelect(callback: OnAlphabetIndexerPopupSelectCallback)
+
+提示弹窗二级索引选中事件，回调参数为当前选中二级索引项索引。
+
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**参数：**
+
+  展开
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| callback | OnAlphabetIndexerPopupSelectCallback | 是 | 提示弹窗二级索引选中事件。 |
+
+## OnAlphabetIndexerSelectCallback 18+
+
+ 支持设备PhonePC/2in1TabletTVWearable
+
+type OnAlphabetIndexerSelectCallback = (index: number) => void
+
+索引项被选中时触发的事件。
+
+**元服务API：** 从API version 18开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**参数：**
+
+  展开
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| index | number | 是 | 当前选中索引项的索引。 |
+
+## OnAlphabetIndexerPopupSelectCallback 18+
+
+ 支持设备PhonePC/2in1TabletTVWearable
+
+type OnAlphabetIndexerPopupSelectCallback = (index: number) => void
+
+提示弹窗二级索引项被选中时触发的事件。
+
+**元服务API：** 从API version 18开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**参数：**
+
+  展开
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| index | number | 是 | 当前选中的提示弹窗二级索引项的索引。 |
+
+## OnAlphabetIndexerRequestPopupDataCallback 18+
+
+ 支持设备PhonePC/2in1TabletTVWearable
+
+type OnAlphabetIndexerRequestPopupDataCallback = (index: number) => Array<string>
+
+[usingPopup](/consumer/cn/doc/harmonyos-references/ts-container-alphabet-indexer#usingpopup)设置值为true，索引项被选中时触发的事件。
+
+**元服务API：** 从API version 18开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**参数：**
+
+  展开
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| index | number | 是 | 当前选中索引项的索引。 |
+
+**返回值：**
+
+  展开
+
+| 类型 | 说明 |
+| --- | --- |
+| Array<string> | 索引项对应的提示弹窗二级索引字符串数组，此字符串数组在弹窗中竖排显示，字符串列表最多显示5个，超出部分可以滑动显示。 |
+
+## 示例
+
+ 支持设备PhonePC/2in1TabletTVWearable  
+
+### 示例1（设置提示弹窗显示文本内容）
+
+通过[onRequestPopupData](/consumer/cn/doc/harmonyos-references/ts-container-alphabet-indexer#onrequestpopupdata8)事件自定义提示弹窗显示文本内容。
+
+ 收起自动换行深色代码主题复制
+
+```
+```
+
+![image](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20260224170434.86276774640916771991111865029678:50001231000000:2800:5051F152111AFE916B27DDDD6B882123C9C91D2BE29AEF54480B29F2A63F26BA.gif)
+
+### 示例2（开启自适应折叠模式）
+
+通过[autoCollapse](/consumer/cn/doc/harmonyos-references/ts-container-alphabet-indexer#autocollapse11)属性开启自适应折叠模式。
+
+ 收起自动换行深色代码主题复制
+
+```
+```
+
+![image](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20260224170434.27333233670268503909491963797057:50001231000000:2800:ACEDB50BC9319932EB1252B8A6A5192E9FD459A9D3A0B5AED74EF07353432A68.gif)
+
+### 示例3（设置提示弹窗背景模糊材质）
+
+通过[popupBackgroundBlurStyle](/consumer/cn/doc/harmonyos-references/ts-container-alphabet-indexer#popupbackgroundblurstyle12)属性实现提示弹窗的背景模糊效果。
+
+ 收起自动换行深色代码主题复制
+
+```
+```
+
+![image](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20260224170434.38212322235002520834684830398398:50001231000000:2800:518616ECDCCA85A2EE79ABC7379B02E95162EF4B3E56B0CB27D7C98CFC9D62CB.gif)

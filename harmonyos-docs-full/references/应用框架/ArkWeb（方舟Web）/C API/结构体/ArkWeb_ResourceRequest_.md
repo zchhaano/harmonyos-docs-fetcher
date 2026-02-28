@@ -1,0 +1,17 @@
+# ArkWeb_ResourceRequest_
+
+```
+typedef struct ArkWeb_ResourceRequest_ ArkWeb_ResourceRequest
+```
+
+## 概述
+
+支持设备PhonePC/2in1TabletTVWearable
+
+对应内核的一个请求，可以通过OH_ArkWeb_ResourceRequest获取请求的URL、method、post data以及其他信息。
+
+**起始版本：** 12
+
+**相关模块：** [Web](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-web)
+
+**所在头文件：** [arkweb_scheme_handler.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkweb-scheme-handler-h)

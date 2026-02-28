@@ -1,0 +1,26 @@
+## 接口原型
+
+| 承载协议 | HTTPS POST |
+| --- | --- |
+| 接口方向 | 开发者服务器 -> 华为Push服务器 |
+| 接口URL | https://push-api.cloud.huawei.com/v3/ [projectId] /messages:send 说明 [projectId] ：项目ID，登录 AppGallery Connect 网站，选择“开发与服务”，在项目列表中选择对应的项目，左侧导航栏选择“项目设置”，在该页面中获取。 |
+| 数据格式 | Content-Type: application/json |
+
+## Request Header
+
+  展开
+
+| 参数 | 取值描述 | 样例 |
+| --- | --- | --- |
+| Authorization | 鉴权方式： JWT方式 。 注意 HarmonyOS 5及以上系统版本推送不再支持OAuth 2.0开放鉴权方式。 详情参见 基于服务账号生成鉴权令牌 。 说明 建议JWT令牌过期时间设置为3600秒，有效期内可以复用。 Bearer后面拼接空格，再拼接获取的鉴权信息。 | Bearer eyJr*****OiIx---****.eyJh*****iJodHR--***.QRod*****4Gp---**** |
+| push-type | 消息类型，取值如下： 0：Alert消息（通知消息） 1：卡片刷新消息 2：语音播报消息 6：后台消息 7：实况窗消息 10：应用内通话消息 | 0 |
+
+## Request Body
+
+  展开
+
+| 参数 | 是否必选 | 参数类型 | 描述 |
+| --- | --- | --- | --- |
+| payload | 是 | Object | 推送消息结构体，不同的push-type场景拥有不同的payload定义： 0： AlertPayload 通知消息 1： FormUpdatePayload 卡片刷新消息 2： ExtensionPayload 语音播报消息 6： BackgroundPayload 后台消息 7： LiveViewPayload 实况窗消息 10： VoIPCallPayload 应用内通话消息 |
+| pushOptions | 否 | Object | 发送控制参数，详情请参见 pushOptions 的定义。 |
+| target | 是 | Object | 发送目标，详情请参见 target 的定义。 |

@@ -1,0 +1,1027 @@
+## 概述
+
+ 支持设备PhonePC/2in1TabletTV
+
+声明效果器相关接口。
+
+效果器提供了滤镜的添加、删除、查询等功能。开发者可以通过效果器提供的接口将多个滤镜组合串联，从而实现较为复杂的效果调节功能。
+
+同时，效果器支持多种输入类型，如Pixelmap、URI、Surface、Picture。不同的输入类型在效果器内部都会转换为内存对象，通过滤镜的效果处理，获得处理结果。
+
+**引用文件：** <multimedia/image_effect/image_effect.h>
+
+**库：** libimage_effect.so
+
+**系统能力：** SystemCapability.Multimedia.ImageEffect.Core
+
+**起始版本：** 12
+
+**相关模块：** [ImageEffect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-imageeffect)
+
+## 汇总
+
+ 支持设备PhonePC/2in1TabletTV  
+
+### 结构体
+
+ 支持设备PhonePC/2in1TabletTV 展开
+
+| 名称 | typedef关键字 | 描述 |
+| --- | --- | --- |
+| OH_ImageEffect | OH_ImageEffect | 定义效果器结构类型。 |
+
+### 函数
+
+ 支持设备PhonePC/2in1TabletTV 展开
+
+| 名称 | 描述 |
+| --- | --- |
+| OH_ImageEffect *OH_ImageEffect_Create(const char *name) | 创建OH_ImageEffect实例，调用 OH_ImageEffect_Release 进行资源释放。 |
+| OH_EffectFilter *OH_ImageEffect_AddFilter(OH_ImageEffect *imageEffect, const char *filterName) | 添加滤镜。 |
+| ImageEffect_ErrorCode OH_ImageEffect_AddFilterByFilter(OH_ImageEffect *imageEffect, OH_EffectFilter *filter) | 添加指定滤镜。 |
+| OH_EffectFilter *OH_ImageEffect_InsertFilter(OH_ImageEffect *imageEffect, uint32_t index, const char *filterName) | 插入滤镜。 |
+| ImageEffect_ErrorCode OH_ImageEffect_InsertFilterByFilter(OH_ImageEffect *imageEffect, uint32_t index, OH_EffectFilter *filter) | 按指定位置插入滤镜。 |
+| int32_t OH_ImageEffect_RemoveFilter(OH_ImageEffect *imageEffect, const char *filterName) | 移除滤镜。 |
+| ImageEffect_ErrorCode OH_ImageEffect_RemoveFilterByIndex(OH_ImageEffect *imageEffect, uint32_t index) | 移除指定位置滤镜。 |
+| OH_EffectFilter *OH_ImageEffect_ReplaceFilter(OH_ImageEffect *imageEffect, uint32_t index, const char *filterName) | 替换滤镜。 |
+| ImageEffect_ErrorCode OH_ImageEffect_ReplaceFilterByFilter(OH_ImageEffect *imageEffect, uint32_t index, OH_EffectFilter *filter) | 替换指定位置滤镜。 |
+| int32_t OH_ImageEffect_GetFilterCount(OH_ImageEffect *imageEffect) | 查询已添加滤镜个数。 |
+| OH_EffectFilter *OH_ImageEffect_GetFilter(OH_ImageEffect *imageEffect, uint32_t index) | 查询已添加滤镜。 |
+| ImageEffect_ErrorCode OH_ImageEffect_Configure(OH_ImageEffect *imageEffect, const char *key, const ImageEffect_Any *value) | 设置配置信息。 |
+| ImageEffect_ErrorCode OH_ImageEffect_SetOutputSurface(OH_ImageEffect *imageEffect, OHNativeWindow *nativeWindow) | 设置输出Surface。 |
+| ImageEffect_ErrorCode OH_ImageEffect_GetInputSurface(OH_ImageEffect *imageEffect, OHNativeWindow **nativeWindow) | 获取输入Surface。 |
+| ImageEffect_ErrorCode OH_ImageEffect_SetInputPixelmap(OH_ImageEffect *imageEffect, OH_PixelmapNative *pixelmap) | 设置输入的Pixelmap。 |
+| ImageEffect_ErrorCode OH_ImageEffect_SetOutputPixelmap(OH_ImageEffect *imageEffect, OH_PixelmapNative *pixelmap) | 设置输出的Pixelmap。 |
+| ImageEffect_ErrorCode OH_ImageEffect_SetInputNativeBuffer(OH_ImageEffect *imageEffect, OH_NativeBuffer *nativeBuffer) | 设置输入的NativeBuffer。 |
+| ImageEffect_ErrorCode OH_ImageEffect_SetOutputNativeBuffer(OH_ImageEffect *imageEffect, OH_NativeBuffer *nativeBuffer) | 设置输出的NativeBuffer。 |
+| ImageEffect_ErrorCode OH_ImageEffect_SetInputUri(OH_ImageEffect *imageEffect, const char *uri) | 设置输入的URI。 |
+| ImageEffect_ErrorCode OH_ImageEffect_SetOutputUri(OH_ImageEffect *imageEffect, const char *uri) | 设置输出的URI。 |
+| ImageEffect_ErrorCode OH_ImageEffect_SetInputPicture(OH_ImageEffect *imageEffect, OH_PictureNative *picture) | 设置输入的Picture。 |
+| ImageEffect_ErrorCode OH_ImageEffect_SetOutputPicture(OH_ImageEffect *imageEffect, OH_PictureNative *picture) | 设置输出的Picture。 |
+| ImageEffect_ErrorCode OH_ImageEffect_SetInputTextureId(OH_ImageEffect *imageEffect, int32_t textureId,int32_t colorSpace) | 配置输入包含图片内容的纹理标识。 |
+| ImageEffect_ErrorCode OH_ImageEffect_SetOutputTextureId(OH_ImageEffect *imageEffect, int32_t textureId) | 配置输出包含渲染后的纹理标识。 |
+| ImageEffect_ErrorCode OH_ImageEffect_Start(OH_ImageEffect *imageEffect) | 启动效果器。 |
+| ImageEffect_ErrorCode OH_ImageEffect_Stop(OH_ImageEffect *imageEffect) | 停止生效效果。 |
+| ImageEffect_ErrorCode OH_ImageEffect_Release(OH_ImageEffect *imageEffect) | 释放OH_ImageEffect实例资源。 |
+| ImageEffect_ErrorCode OH_ImageEffect_Save(OH_ImageEffect *imageEffect, char **info) | 序列化效果器。 |
+| OH_ImageEffect *OH_ImageEffect_Restore(const char *info) | 反序列化效果器。 |
+
+## 函数说明
+
+ 支持设备PhonePC/2in1TabletTV  
+
+### OH_ImageEffect_Create()
+
+ 支持设备PhonePC/2in1TabletTV
+
+```
+OH_ImageEffect *OH_ImageEffect_Create(const char *name)
+```
+
+**描述**
+
+创建OH_ImageEffect实例，调用[OH_ImageEffect_Release](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-effect-h#oh_imageeffect_release)进行资源释放。
+
+**系统能力：** SystemCapability.Multimedia.ImageEffect.Core
+
+**起始版本：** 12
+
+**参数：**
+
+  展开
+
+| 参数项 | 描述 |
+| --- | --- |
+| const char *name | 效果器名，用于标识效果器，由用户自定义，建议为非空的字符串。 |
+
+**返回：**
+
+  展开
+
+| 类型 | 说明 |
+| --- | --- |
+| OH_ImageEffect * | 返回一个指向OH_ImageEffect实例的指针，创建失败时返回空指针。 |
+
+### OH_ImageEffect_AddFilter()
+
+ 支持设备PhonePC/2in1TabletTV
+
+```
+OH_EffectFilter *OH_ImageEffect_AddFilter(OH_ImageEffect *imageEffect, const char *filterName)
+```
+
+**描述**
+
+添加滤镜。
+
+**系统能力：** SystemCapability.Multimedia.ImageEffect.Core
+
+**起始版本：** 12
+
+**参数：**
+
+  展开
+
+| 参数项 | 描述 |
+| --- | --- |
+| OH_ImageEffect *imageEffect | 效果器指针。 |
+| const char *filterName | 滤镜名。 |
+
+**返回：**
+
+  展开
+
+| 类型 | 说明 |
+| --- | --- |
+| OH_EffectFilter * | 返回一个指向OH_EffectFilter实例的指针，滤镜名无效时返回空指针。 |
+
+### OH_ImageEffect_AddFilterByFilter()
+
+ 支持设备PhonePC/2in1TabletTV
+
+```
+ImageEffect_ErrorCode OH_ImageEffect_AddFilterByFilter(OH_ImageEffect *imageEffect, OH_EffectFilter *filter)
+```
+
+**描述**
+
+添加指定滤镜。
+
+**系统能力：** SystemCapability.Multimedia.ImageEffect.Core
+
+**起始版本：** 12
+
+**参数：**
+
+  展开
+
+| 参数项 | 描述 |
+| --- | --- |
+| OH_ImageEffect *imageEffect | 效果器指针。 |
+| OH_EffectFilter *filter | 滤镜指针。 |
+
+**返回：**
+
+  展开
+
+| 类型 | 说明 |
+| --- | --- |
+| ImageEffect_ErrorCode | EFFECT_SUCCESS：方法调用成功。 EFFECT_ERROR_PARAM_INVALID：入参为空指针。 |
+
+### OH_ImageEffect_InsertFilter()
+
+ 支持设备PhonePC/2in1TabletTV
+
+```
+OH_EffectFilter *OH_ImageEffect_InsertFilter(OH_ImageEffect *imageEffect, uint32_t index, const char *filterName)
+```
+
+**描述**
+
+插入滤镜。
+
+**系统能力：** SystemCapability.Multimedia.ImageEffect.Core
+
+**起始版本：** 12
+
+**参数：**
+
+  展开
+
+| 参数项 | 描述 |
+| --- | --- |
+| OH_ImageEffect *imageEffect | 效果器指针。 |
+| uint32_t index | 插入滤镜位置索引。 |
+| const char *filterName | 滤镜名。 |
+
+**返回：**
+
+  展开
+
+| 类型 | 说明 |
+| --- | --- |
+| OH_EffectFilter * | 返回一个指向OH_EffectFilter实例的指针，参数无效时返回空指针。 |
+
+### OH_ImageEffect_InsertFilterByFilter()
+
+ 支持设备PhonePC/2in1TabletTV
+
+```
+ImageEffect_ErrorCode OH_ImageEffect_InsertFilterByFilter(OH_ImageEffect *imageEffect, uint32_t index,OH_EffectFilter *filter)
+```
+
+**描述**
+
+按指定位置插入滤镜。
+
+**系统能力：** SystemCapability.Multimedia.ImageEffect.Core
+
+**起始版本：** 12
+
+**参数：**
+
+  展开
+
+| 参数项 | 描述 |
+| --- | --- |
+| OH_ImageEffect *imageEffect | 效果器指针。 |
+| uint32_t index | 插入滤镜位置索引。 |
+| OH_EffectFilter *filter | 滤镜指针。 |
+
+**返回：**
+
+  展开
+
+| 类型 | 说明 |
+| --- | --- |
+| ImageEffect_ErrorCode | EFFECT_SUCCESS：方法调用成功。 EFFECT_ERROR_PARAM_INVALID：入参为空指针。 |
+
+### OH_ImageEffect_RemoveFilter()
+
+ 支持设备PhonePC/2in1TabletTV
+
+```
+int32_t OH_ImageEffect_RemoveFilter(OH_ImageEffect *imageEffect, const char *filterName)
+```
+
+**描述**
+
+移除滤镜。
+
+**系统能力：** SystemCapability.Multimedia.ImageEffect.Core
+
+**起始版本：** 12
+
+**参数：**
+
+  展开
+
+| 参数项 | 描述 |
+| --- | --- |
+| OH_ImageEffect *imageEffect | 效果器指针。 |
+| const char *filterName | 滤镜名。 |
+
+**返回：**
+
+  展开
+
+| 类型 | 说明 |
+| --- | --- |
+| int32_t | 所删除的滤镜个数。 |
+
+### OH_ImageEffect_RemoveFilterByIndex()
+
+ 支持设备PhonePC/2in1TabletTV
+
+```
+ImageEffect_ErrorCode OH_ImageEffect_RemoveFilterByIndex(OH_ImageEffect *imageEffect, uint32_t index)
+```
+
+**描述**
+
+移除指定位置滤镜。
+
+**系统能力：** SystemCapability.Multimedia.ImageEffect.Core
+
+**起始版本：** 12
+
+**参数：**
+
+  展开
+
+| 参数项 | 描述 |
+| --- | --- |
+| OH_ImageEffect *imageEffect | 效果器指针。 |
+| uint32_t index | 移除滤镜位置索引。 |
+
+**返回：**
+
+  展开
+
+| 类型 | 说明 |
+| --- | --- |
+| ImageEffect_ErrorCode | EFFECT_SUCCESS：方法调用成功。 EFFECT_ERROR_PARAM_INVALID：入参为空指针。 |
+
+### OH_ImageEffect_ReplaceFilter()
+
+ 支持设备PhonePC/2in1TabletTV
+
+```
+OH_EffectFilter *OH_ImageEffect_ReplaceFilter(OH_ImageEffect *imageEffect, uint32_t index, const char *filterName)
+```
+
+**描述**
+
+替换滤镜。
+
+**系统能力：** SystemCapability.Multimedia.ImageEffect.Core
+
+**起始版本：** 12
+
+**参数：**
+
+  展开
+
+| 参数项 | 描述 |
+| --- | --- |
+| OH_ImageEffect *imageEffect | 效果器指针。 |
+| const char *filterName | 滤镜名。 |
+
+**返回：**
+
+  展开
+
+| 类型 | 说明 |
+| --- | --- |
+| OH_EffectFilter * | 返回一个指向OH_EffectFilter实例的指针，替换失败时返回空指针。 |
+
+### OH_ImageEffect_ReplaceFilterByFilter()
+
+ 支持设备PhonePC/2in1TabletTV
+
+```
+ImageEffect_ErrorCode OH_ImageEffect_ReplaceFilterByFilter(OH_ImageEffect *imageEffect, uint32_t index, OH_EffectFilter *filter)
+```
+
+**描述**
+
+替换指定位置滤镜。
+
+**系统能力：** SystemCapability.Multimedia.ImageEffect.Core
+
+**起始版本：** 12
+
+**参数：**
+
+  展开
+
+| 参数项 | 描述 |
+| --- | --- |
+| OH_ImageEffect *imageEffect | 效果器指针。 |
+| uint32_t index | 替换滤镜位置索引。 |
+| OH_EffectFilter *filter | 滤镜指针。 |
+
+**返回：**
+
+  展开
+
+| 类型 | 说明 |
+| --- | --- |
+| ImageEffect_ErrorCode | EFFECT_SUCCESS：方法调用成功。 EFFECT_ERROR_PARAM_INVALID：入参为空指针。 |
+
+### OH_ImageEffect_GetFilterCount()
+
+ 支持设备PhonePC/2in1TabletTV
+
+```
+int32_t OH_ImageEffect_GetFilterCount(OH_ImageEffect *imageEffect)
+```
+
+**描述**
+
+查询已添加滤镜个数。
+
+**系统能力：** SystemCapability.Multimedia.ImageEffect.Core
+
+**起始版本：** 12
+
+**参数：**
+
+  展开
+
+| 参数项 | 描述 |
+| --- | --- |
+| OH_ImageEffect *imageEffect | 效果器指针。 |
+
+**返回：**
+
+  展开
+
+| 类型 | 说明 |
+| --- | --- |
+| int32_t | 已添加的滤镜个数。 |
+
+### OH_ImageEffect_GetFilter()
+
+ 支持设备PhonePC/2in1TabletTV
+
+```
+OH_EffectFilter *OH_ImageEffect_GetFilter(OH_ImageEffect *imageEffect, uint32_t index)
+```
+
+**描述**
+
+查询已添加滤镜。
+
+**系统能力：** SystemCapability.Multimedia.ImageEffect.Core
+
+**起始版本：** 12
+
+**参数：**
+
+  展开
+
+| 参数项 | 描述 |
+| --- | --- |
+| OH_ImageEffect *imageEffect | 效果器指针。 |
+| uint32_t index | 待查询滤镜位置索引。 |
+
+**返回：**
+
+  展开
+
+| 类型 | 说明 |
+| --- | --- |
+| OH_EffectFilter * | 返回一个指向OH_EffectFilter实例的指针，参数无效时返回空指针。 |
+
+### OH_ImageEffect_Configure()
+
+ 支持设备PhonePC/2in1TabletTV
+
+```
+ImageEffect_ErrorCode OH_ImageEffect_Configure(OH_ImageEffect *imageEffect, const char *key,const ImageEffect_Any *value)
+```
+
+**描述**
+
+设置配置信息。
+
+**系统能力：** SystemCapability.Multimedia.ImageEffect.Core
+
+**起始版本：** 12
+
+**参数：**
+
+  展开
+
+| 参数项 | 描述 |
+| --- | --- |
+| OH_ImageEffect *imageEffect | 效果器指针。 |
+| const char *key | 配置参数。 |
+| const ImageEffect_Any *value | 配置参数值。 |
+
+**返回：**
+
+  展开
+
+| 类型 | 说明 |
+| --- | --- |
+| ImageEffect_ErrorCode | EFFECT_SUCCESS：方法调用成功。 EFFECT_ERROR_PARAM_INVALID：入参为空指针。 EFFECT_KEY_ERROR：参数无效。 EFFECT_PARAM_ERROR：参数值无效。 |
+
+### OH_ImageEffect_SetOutputSurface()
+
+ 支持设备PhonePC/2in1TabletTV
+
+```
+ImageEffect_ErrorCode OH_ImageEffect_SetOutputSurface(OH_ImageEffect *imageEffect, OHNativeWindow *nativeWindow)
+```
+
+**描述**
+
+设置输出Surface。
+
+**系统能力：** SystemCapability.Multimedia.ImageEffect.Core
+
+**起始版本：** 12
+
+**参数：**
+
+  展开
+
+| 参数项 | 描述 |
+| --- | --- |
+| OH_ImageEffect *imageEffect | 效果器指针。 |
+| OHNativeWindow *nativeWindow | 指向OHNativeWindow实例的指针。 |
+
+**返回：**
+
+  展开
+
+| 类型 | 说明 |
+| --- | --- |
+| ImageEffect_ErrorCode | EFFECT_SUCCESS：方法调用成功。 EFFECT_ERROR_PARAM_INVALID：入参为空指针。 |
+
+### OH_ImageEffect_GetInputSurface()
+
+ 支持设备PhonePC/2in1TabletTV
+
+```
+ImageEffect_ErrorCode OH_ImageEffect_GetInputSurface(OH_ImageEffect *imageEffect, OHNativeWindow **nativeWindow)
+```
+
+**描述**
+
+获取输入Surface。
+
+**系统能力：** SystemCapability.Multimedia.ImageEffect.Core
+
+**起始版本：** 12
+
+**参数：**
+
+  展开
+
+| 参数项 | 描述 |
+| --- | --- |
+| OH_ImageEffect *imageEffect | 效果器指针。 |
+| OHNativeWindow **nativeWindow | 指向OHNativeWindow实例的指针。 |
+
+**返回：**
+
+  展开
+
+| 类型 | 说明 |
+| --- | --- |
+| ImageEffect_ErrorCode | EFFECT_SUCCESS：方法调用成功。 EFFECT_ERROR_PARAM_INVALID：入参为空指针。 |
+
+### OH_ImageEffect_SetInputPixelmap()
+
+ 支持设备PhonePC/2in1TabletTV
+
+```
+ImageEffect_ErrorCode OH_ImageEffect_SetInputPixelmap(OH_ImageEffect *imageEffect, OH_PixelmapNative *pixelmap)
+```
+
+**描述**
+
+设置输入的Pixelmap。
+
+**系统能力：** SystemCapability.Multimedia.ImageEffect.Core
+
+**起始版本：** 12
+
+**参数：**
+
+  展开
+
+| 参数项 | 描述 |
+| --- | --- |
+| OH_ImageEffect *imageEffect | 效果器指针。 |
+| OH_PixelmapNative *pixelmap | 指向OH_PixelmapNative实例的指针。 |
+
+**返回：**
+
+  展开
+
+| 类型 | 说明 |
+| --- | --- |
+| ImageEffect_ErrorCode | EFFECT_SUCCESS：方法调用成功。 EFFECT_ERROR_PARAM_INVALID：入参为空指针。 |
+
+### OH_ImageEffect_SetOutputPixelmap()
+
+ 支持设备PhonePC/2in1TabletTV
+
+```
+ImageEffect_ErrorCode OH_ImageEffect_SetOutputPixelmap(OH_ImageEffect *imageEffect, OH_PixelmapNative *pixelmap)
+```
+
+**描述**
+
+设置输出的Pixelmap。
+
+**系统能力：** SystemCapability.Multimedia.ImageEffect.Core
+
+**起始版本：** 12
+
+**参数：**
+
+  展开
+
+| 参数项 | 描述 |
+| --- | --- |
+| OH_ImageEffect *imageEffect | 效果器指针。 |
+| OH_PixelmapNative *pixelmap | 指向OH_PixelmapNative实例的指针。 |
+
+**返回：**
+
+  展开
+
+| 类型 | 说明 |
+| --- | --- |
+| ImageEffect_ErrorCode | EFFECT_SUCCESS：方法调用成功。 EFFECT_ERROR_PARAM_INVALID：入参为空指针。 EFFECT_PARAM_ERROR：如果参数异常导致方法调用失败。 |
+
+### OH_ImageEffect_SetInputNativeBuffer()
+
+ 支持设备PhonePC/2in1TabletTV
+
+```
+ImageEffect_ErrorCode OH_ImageEffect_SetInputNativeBuffer(OH_ImageEffect *imageEffect, OH_NativeBuffer *nativeBuffer)
+```
+
+**描述**
+
+设置输入的NativeBuffer。
+
+**系统能力：** SystemCapability.Multimedia.ImageEffect.Core
+
+**起始版本：** 12
+
+**参数：**
+
+  展开
+
+| 参数项 | 描述 |
+| --- | --- |
+| OH_ImageEffect *imageEffect | 效果器指针。 |
+| OH_NativeBuffer *nativeBuffer | 指向OH_NativeBuffer实例的指针。 |
+
+**返回：**
+
+  展开
+
+| 类型 | 说明 |
+| --- | --- |
+| ImageEffect_ErrorCode | EFFECT_SUCCESS：方法调用成功。 EFFECT_ERROR_PARAM_INVALID：入参为空指针。 |
+
+### OH_ImageEffect_SetOutputNativeBuffer()
+
+ 支持设备PhonePC/2in1TabletTV
+
+```
+ImageEffect_ErrorCode OH_ImageEffect_SetOutputNativeBuffer(OH_ImageEffect *imageEffect, OH_NativeBuffer *nativeBuffer)
+```
+
+**描述**
+
+设置输出的NativeBuffer。
+
+**系统能力：** SystemCapability.Multimedia.ImageEffect.Core
+
+**起始版本：** 12
+
+**参数：**
+
+  展开
+
+| 参数项 | 描述 |
+| --- | --- |
+| OH_ImageEffect *imageEffect | 效果器指针。 |
+| OH_NativeBuffer *nativeBuffer | 指向OH_NativeBuffer实例的指针，允许为空，当输入为空时渲染结果返回到输入的OH_NativeBuffer对象上。 |
+
+**返回：**
+
+  展开
+
+| 类型 | 说明 |
+| --- | --- |
+| ImageEffect_ErrorCode | EFFECT_SUCCESS：方法调用成功。 EFFECT_ERROR_PARAM_INVALID：入参为空指针。 EFFECT_PARAM_ERROR：如果参数异常导致方法调用失败。 |
+
+### OH_ImageEffect_SetInputUri()
+
+ 支持设备PhonePC/2in1TabletTV
+
+```
+ImageEffect_ErrorCode OH_ImageEffect_SetInputUri(OH_ImageEffect *imageEffect, const char *uri)
+```
+
+**描述**
+
+设置输入的URI。
+
+**系统能力：** SystemCapability.Multimedia.ImageEffect.Core
+
+**起始版本：** 12
+
+**参数：**
+
+  展开
+
+| 参数项 | 描述 |
+| --- | --- |
+| OH_ImageEffect *imageEffect | 效果器指针。 |
+| const char *uri | 图片URI（只支持Jpeg，Heif）。 |
+
+**返回：**
+
+  展开
+
+| 类型 | 说明 |
+| --- | --- |
+| ImageEffect_ErrorCode | EFFECT_SUCCESS：方法调用成功。 EFFECT_ERROR_PARAM_INVALID：入参为空指针。 |
+
+### OH_ImageEffect_SetOutputUri()
+
+ 支持设备PhonePC/2in1TabletTV
+
+```
+ImageEffect_ErrorCode OH_ImageEffect_SetOutputUri(OH_ImageEffect *imageEffect, const char *uri)
+```
+
+**描述**
+
+设置输出的URI。
+
+**系统能力：** SystemCapability.Multimedia.ImageEffect.Core
+
+**起始版本：** 12
+
+**参数：**
+
+  展开
+
+| 参数项 | 描述 |
+| --- | --- |
+| OH_ImageEffect *imageEffect | 效果器指针。 |
+| const char *uri | 图片URI。输出URI的格式和输入保持一致，如果不支持Heif编码能力，则进行Jpeg编码。 |
+
+**返回：**
+
+  展开
+
+| 类型 | 说明 |
+| --- | --- |
+| ImageEffect_ErrorCode | EFFECT_SUCCESS：方法调用成功。 EFFECT_ERROR_PARAM_INVALID：入参为空指针。 |
+
+### OH_ImageEffect_SetInputPicture()
+
+ 支持设备PhonePC/2in1TabletTV
+
+```
+ImageEffect_ErrorCode OH_ImageEffect_SetInputPicture(OH_ImageEffect *imageEffect, OH_PictureNative *picture)
+```
+
+**描述**
+
+设置输入的Picture。
+
+**系统能力：** SystemCapability.Multimedia.ImageEffect.Core
+
+**起始版本：** 13
+
+**参数：**
+
+  展开
+
+| 参数项 | 描述 |
+| --- | --- |
+| OH_ImageEffect *imageEffect | 效果器指针。 |
+| OH_PictureNative *picture | 指向OH_PictureNative实例的指针。 |
+
+**返回：**
+
+  展开
+
+| 类型 | 说明 |
+| --- | --- |
+| ImageEffect_ErrorCode | EFFECT_SUCCESS：方法调用成功。 EFFECT_ERROR_PARAM_INVALID：入参为空指针。 |
+
+### OH_ImageEffect_SetOutputPicture()
+
+ 支持设备PhonePC/2in1TabletTV
+
+```
+ImageEffect_ErrorCode OH_ImageEffect_SetOutputPicture(OH_ImageEffect *imageEffect, OH_PictureNative *picture)
+```
+
+**描述**
+
+设置输出的Picture。
+
+**系统能力：** SystemCapability.Multimedia.ImageEffect.Core
+
+**起始版本：** 13
+
+**参数：**
+
+  展开
+
+| 参数项 | 描述 |
+| --- | --- |
+| OH_ImageEffect *imageEffect | 效果器指针。 |
+| OH_PictureNative *picture | 指向OH_PictureNative实例的指针，允许为空，当输入为空时渲染结果返回到输入的OH_PictureNative对象上。 |
+
+**返回：**
+
+  展开
+
+| 类型 | 说明 |
+| --- | --- |
+| ImageEffect_ErrorCode | EFFECT_SUCCESS：方法调用成功。 EFFECT_ERROR_PARAM_INVALID：入参为空指针。 EFFECT_PARAM_ERROR：如果参数异常导致方法调用失败。 |
+
+### OH_ImageEffect_SetInputTextureId()
+
+ 支持设备PhonePC/2in1TabletTV
+
+```
+ImageEffect_ErrorCode OH_ImageEffect_SetInputTextureId(OH_ImageEffect *imageEffect, int32_t textureId,int32_t colorSpace)
+```
+
+**描述**
+
+配置输入包含图片内容的纹理标识。
+
+**系统能力：** SystemCapability.Multimedia.ImageEffect.Core
+
+**起始版本：** 20
+
+**参数：**
+
+  展开
+
+| 参数项 | 描述 |
+| --- | --- |
+| OH_ImageEffect *imageEffect | OH_ImageEffect结构体实例指针。 |
+| int32_t textureId | 包含图片内容的纹理标识，纹理标识必须是有效的且绑定了GL_TEXTURE_2D类型的纹理。 |
+| int32_t colorSpace | 图片对应的色彩空间。 |
+
+**返回：**
+
+  展开
+
+| 类型 | 说明 |
+| --- | --- |
+| ImageEffect_ErrorCode | EFFECT_SUCCESS：方法调用成功。 EFFECT_ERROR_PARAM_INVALID：入参为空指针或参数超出有效范围。 EFFECT_PARAM_ERROR：参数缺失或参数错误。 |
+
+### OH_ImageEffect_SetOutputTextureId()
+
+ 支持设备PhonePC/2in1TabletTV
+
+```
+ImageEffect_ErrorCode OH_ImageEffect_SetOutputTextureId(OH_ImageEffect *imageEffect, int32_t textureId)
+```
+
+**描述**
+
+配置输出包含渲染后的纹理标识。
+
+**系统能力：** SystemCapability.Multimedia.ImageEffect.Core
+
+**起始版本：** 20
+
+**参数：**
+
+  展开
+
+| 参数项 | 描述 |
+| --- | --- |
+| OH_ImageEffect *imageEffect | OH_ImageEffect结构体实例指针。 |
+| int32_t textureId | 包含图片渲染后内容的纹理标识，纹理标识必须是一个有效的纹理。 如果纹理标识未被绑定纹理图片，纹理标识会自动绑定GL_TEXTURE_2D类型； 如果纹理标识已经被绑定纹理且尺寸不合适，结果可能会被裁剪或部分填充到此纹理上。 |
+
+**返回：**
+
+  展开
+
+| 类型 | 说明 |
+| --- | --- |
+| ImageEffect_ErrorCode | EFFECT_SUCCESS：方法调用成功。 EFFECT_ERROR_PARAM_INVALID：入参为空指针或参数超出有效范围。 EFFECT_PARAM_ERROR：参数缺失或参数错误。 |
+
+### OH_ImageEffect_Start()
+
+ 支持设备PhonePC/2in1TabletTV
+
+```
+ImageEffect_ErrorCode OH_ImageEffect_Start(OH_ImageEffect *imageEffect)
+```
+
+**描述**
+
+启动效果器。
+
+**系统能力：** SystemCapability.Multimedia.ImageEffect.Core
+
+**起始版本：** 12
+
+**参数：**
+
+  展开
+
+| 参数项 | 描述 |
+| --- | --- |
+| OH_ImageEffect *imageEffect | 效果器指针。 |
+
+**返回：**
+
+  展开
+
+| 类型 | 说明 |
+| --- | --- |
+| ImageEffect_ErrorCode | EFFECT_SUCCESS：方法调用成功。 EFFECT_ERROR_PARAM_INVALID：入参为空指针。 EFFECT_INPUT_OUTPUT_NOT_SUPPORTED：待处理输入、输出图像数据类型不一致。 EFFECT_COLOR_SPACE_NOT_MATCH：输入、输出图像色彩空间不匹配。 EFFECT_ALLOCATE_MEMORY_FAILED：内存申请失败。 |
+
+### OH_ImageEffect_Stop()
+
+ 支持设备PhonePC/2in1TabletTV
+
+```
+ImageEffect_ErrorCode OH_ImageEffect_Stop(OH_ImageEffect *imageEffect)
+```
+
+**描述**
+
+停止生效效果。
+
+**系统能力：** SystemCapability.Multimedia.ImageEffect.Core
+
+**起始版本：** 12
+
+**参数：**
+
+  展开
+
+| 参数项 | 描述 |
+| --- | --- |
+| OH_ImageEffect *imageEffect | 效果器指针。 |
+
+**返回：**
+
+  展开
+
+| 类型 | 说明 |
+| --- | --- |
+| ImageEffect_ErrorCode | EFFECT_SUCCESS：方法调用成功。 EFFECT_ERROR_PARAM_INVALID：入参为空指针。 |
+
+### OH_ImageEffect_Release()
+
+ 支持设备PhonePC/2in1TabletTV
+
+```
+ImageEffect_ErrorCode OH_ImageEffect_Release(OH_ImageEffect *imageEffect)
+```
+
+**描述**
+
+释放OH_ImageEffect实例资源。
+
+**系统能力：** SystemCapability.Multimedia.ImageEffect.Core
+
+**起始版本：** 12
+
+**参数：**
+
+  展开
+
+| 参数项 | 描述 |
+| --- | --- |
+| OH_ImageEffect *imageEffect | 效果器指针。 |
+
+**返回：**
+
+  展开
+
+| 类型 | 说明 |
+| --- | --- |
+| ImageEffect_ErrorCode | EFFECT_SUCCESS：方法调用成功。 EFFECT_ERROR_PARAM_INVALID：入参为空指针。 |
+
+### OH_ImageEffect_Save()
+
+ 支持设备PhonePC/2in1TabletTV
+
+```
+ImageEffect_ErrorCode OH_ImageEffect_Save(OH_ImageEffect *imageEffect, char **info)
+```
+
+**描述**
+
+序列化效果器。
+
+**系统能力：** SystemCapability.Multimedia.ImageEffect.Core
+
+**起始版本：** 12
+
+**参数：**
+
+  展开
+
+| 参数项 | 描述 |
+| --- | --- |
+| OH_ImageEffect *imageEffect | 效果器指针。 |
+| char **info | 指向char数组的指针，返回序列化JSON字符串。 |
+
+**返回：**
+
+  展开
+
+| 类型 | 说明 |
+| --- | --- |
+| ImageEffect_ErrorCode | EFFECT_SUCCESS：方法调用成功。 EFFECT_ERROR_PARAM_INVALID：入参为空指针。 |
+
+### OH_ImageEffect_Restore()
+
+ 支持设备PhonePC/2in1TabletTV
+
+```
+OH_ImageEffect *OH_ImageEffect_Restore(const char *info)
+```
+
+**描述**
+
+反序列化效果器。
+
+**系统能力：** SystemCapability.Multimedia.ImageEffect.Core
+
+**起始版本：** 12
+
+**参数：**
+
+  展开
+
+| 参数项 | 描述 |
+| --- | --- |
+| const char *info | 序列化JSON字符串。 |
+
+**返回：**
+
+  展开
+
+| 类型 | 说明 |
+| --- | --- |
+| OH_ImageEffect * | 反序列化成功时返回OH_ImageEffect实例，否则返回空指针。 |

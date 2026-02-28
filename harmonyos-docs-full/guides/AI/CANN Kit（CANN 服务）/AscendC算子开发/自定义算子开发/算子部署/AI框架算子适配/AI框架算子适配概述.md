@@ -1,0 +1,7 @@
+# AI框架算子适配概述
+
+本章节内容介绍AI框架调用自定义算子的方法。如下图所示，PyTorch和TensorFlow仅支持图模式。
+
+AI框架调用时，除了需要提供DDK框架调用时需要的代码实现文件，还需要进行插件适配开发。下文仅展示通过ONNX框架进行算子适配，TensorFlow框架开发流程与ONNX框架开发流程一致。
+
+![image](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20260224165304.93333630636544690606255576581168:50001231000000:2800:0C763E2C8D08BA547E9E986E99544097DC86C182391F685198A9C3B3467B5C49.png)

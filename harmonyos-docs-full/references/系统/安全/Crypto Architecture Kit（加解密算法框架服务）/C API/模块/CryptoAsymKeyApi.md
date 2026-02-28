@@ -1,0 +1,15 @@
+## 概述
+
+支持设备PhonePC/2in1TabletTVWearable
+
+为应用提供非对称密钥生成和转换算法接口。
+
+**起始版本：** 12
+
+## 文件汇总
+
+ 支持设备PhonePC/2in1TabletTVWearable展开
+
+| 名称 | 描述 |
+| --- | --- |
+| crypto_asym_key.h | 声明非对称密钥接口。 |

@@ -1,0 +1,30 @@
+# OH_QoS_GewuCreateSessionResult
+
+```
+typedef struct { ... } OH_QoS_GewuCreateSessionResult
+```
+
+## 概述
+
+支持设备PhonePC/2in1TabletTVWearable
+
+OH_QoS_GewuCreateSession()接口的返回结果，成功时返回创建的 session，失败时 error 会置为对应的错误码 。
+
+**起始版本：** 20
+
+**相关模块：** [QoS](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-qos)
+
+**所在头文件：** [qos.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-qos-h)
+
+## 汇总
+
+支持设备PhonePC/2in1TabletTVWearable 
+
+### 成员变量
+
+ 支持设备PhonePC/2in1TabletTVWearable展开
+
+| 名称 | 描述 |
+| --- | --- |
+| OH_QoS_GewuSession session | 创建出来的会话句柄 |
+| OH_QoS_GewuErrorCode error | 错误码- 创建会话成功返回OH_QOS_GEWU_OK。- 由于没有足够的内存而创建会话失败返回OH_QOS_GEWU_NOMEM。 |

@@ -1,0 +1,18 @@
+## 概述
+
+支持设备PC/2in1
+
+提供USB DDK接口，包括主机侧打开和关闭接口、管道同步异步读写通信、控制传输、中断传输等。
+
+**系统能力：** SystemCapability.Driver.USB.Extension
+
+**起始版本：** 10
+
+## 文件汇总
+
+ 支持设备PC/2in1展开
+
+| 名称 | 描述 |
+| --- | --- |
+| usb_ddk_api.h | 声明用于主机侧访问设备的USB DDK接口。 |
+| usb_ddk_types.h | 提供USB DDK中的枚举变量、结构体定义与宏定义。 |

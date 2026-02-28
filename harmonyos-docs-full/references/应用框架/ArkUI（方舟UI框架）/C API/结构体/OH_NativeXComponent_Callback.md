@@ -1,0 +1,128 @@
+# OH_NativeXComponent_Callback
+
+```
+typedef struct OH_NativeXComponent_Callback {...} OH_NativeXComponent_Callback
+```
+
+## 概述
+
+支持设备PhonePC/2in1TabletTVWearable
+
+注册Surface生命周期和触摸事件回调。
+
+**起始版本：** 8
+
+**相关模块：** [OH_NativeXComponent Native XComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-nativexcomponent-native-xcomponent)
+
+**所在头文件：** [native_interface_xcomponent.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-interface-xcomponent-h)
+
+## 汇总
+
+支持设备PhonePC/2in1TabletTVWearable 
+
+### 成员函数
+
+ 支持设备PhonePC/2in1TabletTVWearable展开
+
+| 名称 | 描述 |
+| --- | --- |
+| void (*OnSurfaceCreated)(OH_NativeXComponent* component, void* window) | 创建Surface时调用。 |
+| void (*OnSurfaceChanged)(OH_NativeXComponent* component, void* window) | 当Surface改变时调用。 |
+| void (*OnSurfaceDestroyed)(OH_NativeXComponent* component, void* window) | 当Surface被销毁时调用。 |
+| void (*DispatchTouchEvent)(OH_NativeXComponent* component, void* window) | 当触摸事件被触发时调用。 |
+
+## 成员函数说明
+
+支持设备PhonePC/2in1TabletTVWearable 
+
+### OnSurfaceCreated()
+
+支持设备PhonePC/2in1TabletTVWearable
+
+```
+void (*OnSurfaceCreated)(OH_NativeXComponent* component, void* window)
+```
+
+**描述：**
+
+创建Surface时调用。
+
+**起始版本：** 8
+
+**参数：**
+
+ 展开
+
+| 参数项 | 描述 |
+| --- | --- |
+| OH_NativeXComponent * component | 表示指向 OH_NativeXComponent 实例的指针。 |
+| void* window | 表示NativeWindow句柄。 |
+
+### OnSurfaceChanged()
+
+支持设备PhonePC/2in1TabletTVWearable
+
+```
+void (*OnSurfaceChanged)(OH_NativeXComponent* component, void* window)
+```
+
+**描述：**
+
+当Surface改变时调用。
+
+**起始版本：** 8
+
+**参数：**
+
+ 展开
+
+| 参数项 | 描述 |
+| --- | --- |
+| OH_NativeXComponent * component | 表示指向 OH_NativeXComponent 实例的指针。 |
+| void* window | 表示NativeWindow句柄。 通过XComponent生命周期获取的NativeWindow本身由系统侧持有了一次引用计数，并会在OnSurfaceDestroyed回调触发之后将引用计数减一，引用计数归零后NativeWindow将被释放。 |
+
+### OnSurfaceDestroyed()
+
+支持设备PhonePC/2in1TabletTVWearable
+
+```
+void (*OnSurfaceDestroyed)(OH_NativeXComponent* component, void* window)
+```
+
+**描述：**
+
+当Surface被销毁时调用。
+
+**起始版本：** 8
+
+**参数：**
+
+ 展开
+
+| 参数项 | 描述 |
+| --- | --- |
+| OH_NativeXComponent * component | 表示指向 OH_NativeXComponent 实例的指针。 |
+| void* window | 表示NativeWindow句柄。 |
+
+### DispatchTouchEvent()
+
+支持设备PhonePC/2in1TabletTVWearable
+
+```
+void (*DispatchTouchEvent)(OH_NativeXComponent* component, void* window)
+```
+
+**描述：**
+
+当触摸事件被触发时调用。
+
+**起始版本：** 8
+
+**参数：**
+
+ 展开
+
+| 参数项 | 描述 |
+| --- | --- |
+| OH_NativeXComponent * component | 表示指向 OH_NativeXComponent 实例的指针。 |
+| void* window | 表示NativeWindow句柄。 |
