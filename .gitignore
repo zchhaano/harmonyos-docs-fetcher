@@ -6,11 +6,15 @@ __pycache__/
 .Python
 venv/
 env/
+.venv/
 
 # HarmonyOS docs (now included in git)
 # harmonyos-docs-full/
 # harmonyos-docs-full-clawer/
 # *.zip
+
+# Playwright MCP
+.playwright-mcp/
 
 # IDE
 .vscode/
@@ -30,3 +34,4 @@ failed.json
 # Progress files (optional, comment out if you want to track)
 *_progress.json
 *_mapping.json
+harmonyos-docs-full/.snapshots/
