@@ -184,8 +184,43 @@ harmonyos-docs-full/
 ```
 harmony-developer-docs-fetcher/
 ├── merge_docs.py               # 文档合并工具 (生成超大MD文件)
+├── incremental_update.py       # 增量更新工具
+├── requirements.txt            # Python 依赖
 └── parser/                     # HTML转Markdown解析模块
 ```
+
+## 增量更新
+
+建议使用单独虚拟环境运行爬虫，避免系统 Python 缺依赖。完整增量更新流程如下：
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+./.venv/bin/python incremental_update.py
+```
+
+常用命令：
+
+```bash
+# 准确增量：逐篇校验远端文档，只写入新增或内容变更的文件
+./.venv/bin/python incremental_update.py
+
+# 只更新 guides / references
+./.venv/bin/python incremental_update.py --guides
+./.venv/bin/python incremental_update.py --references
+
+# 快速模式：只补抓新增/缺失文档
+./.venv/bin/python incremental_update.py --fast
+
+# 仅预览，不落盘
+./.venv/bin/python incremental_update.py --dry-run
+```
+
+说明：
+- `incremental_update.py` 会在 `harmonyos-docs-full/.snapshots/` 下维护本地同步清单。
+- `--dry-run` 不会更新状态文件，失败下载也不会污染下次增量结果。
+- 默认模式更准确，但会比 `--fast` 慢，因为会校验现有文档是否发生内容变化。
 
 ## 文档合并
 
@@ -232,7 +267,9 @@ python merge_docs.py
 ## 系统要求
 
 ```bash
-pip install playwright
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
 playwright install chromium
 ```
 

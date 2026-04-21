@@ -1,0 +1,56 @@
+# 简介
+
+ 
+
+TQueBind绑定源逻辑位置和目的逻辑位置，根据源位置和目的位置，来确定内存分配的位置、插入对应的同步事件，帮助开发者解决内存分配和管理、同步等问题。TQue是TQueBind的简化模式。通常情况下开发者使用TQue进行编程，TQueBind对外提供一些特殊数据通路的内存管理和同步控制，涉及这些通路时可以直接使用TQueBind。
+
+ 
+
+如下图的数据通路示意图所示，红色线条和蓝色线条的通路可通过TQueBind定义表达，蓝色线条的通路可通过TQue进行简化表达。
+
+ 
+
+![image](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ad/v3/tQxp2awHTuWQyUkY-FoJhg/zh-cn_image_0000002543215318.png?HW-CC-KV=V1&HW-CC-Date=20260420T191515Z&HW-CC-Expire=86400&HW-CC-Sign=305D373A87AD2FF626E8CF208A61C14233A3C3CF875E2FDCA7E4226F14239F5A)l
+
+ 
+
+**表1** TQueBind和TQue对于数据通路的表达
+
+ 
+
+| 数据通路 | TQueBind定义 | TQue定义 |
+| --- | --- | --- |
+| GM->VECIN | TQueBind<TPosition::GM, TPosition::VECIN, 1> | TQue<TPosition::VECIN, 1> |
+| VECOUT->GM | TQueBind<TPosition::VECOUT, TPosition::GM, 1> | TQue<TPosition::VECOUT, 1> |
+| VECIN->VECOUT | TQueBind<TPosition::VECIN, TPosition::VECOUT, 1> | - |
+| GM->A1 | TQueBind<TPosition::GM, TPosition::A1, 1> | TQue<TPosition::A1, 1> |
+| GM->B1 | TQueBind<TPosition::GM, TPosition::B1, 1> | TQue<TPosition::B1, 1> |
+| GM->C1 | TQueBind<TPosition::GM, TPosition::C1, 1> | TQue<TPosition::C1, 1> |
+| A1->A2 | TQueBind<TPosition::A1, TPosition::A2, 1> | TQue<TPosition::A2, 1> |
+| B1->B2 | TQueBind<TPosition::B1, TPosition::B2, 1> | TQue<TPosition::B2, 1> |
+| C1->C2 | TQueBind<TPosition::C1, TPosition::C2, 1> | TQue<TPosition::C2, 1> |
+| CO1->CO2 | TQueBind<TPosition::CO1, TPosition::CO2, 1> | TQue<TPosition::CO1, 1> |
+| CO2->GM | TQueBind<TPosition::CO2, TPosition::GM, 1> | TQue<TPosition::CO2, 1> |
+| VECOUT->A1/B1/C1 | TQueBind<TPosition::VECOUT, TPosition::A1, 1>; TQueBind<TPosition::VECOUT, TPosition::B1, 1>; TQueBind<TPosition::VECOUT, TPosition::C1, 1> | - |
+| CO2->VECIN | TQueBind<TPosition::CO2, TPosition::VECIN, 1> | - |
+
+  ![image](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2d/v3/dcXR2duURiW8Byw7ZpBykQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260420T191515Z&HW-CC-Expire=86400&HW-CC-Sign=5340BF76875FD2BE6FAEB7D98DA6814F84F5862F20339824550E987AF1745A34)  
+
+上述表格中的Cube相关数据通路建议使用Cube高阶API（如Matmul）实现，直接使用TQueBind控制会相对复杂。
+
+  
+
+下面通过两个具体的示例展示了矢量编程场景下TQueBind的使用方法：
+
+ 
+
+- 如下的编程范式示例，图中的两个队列分别绑定的是GM VECIN和VECOUT GM。
+
+ 
+
+![image](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cd/v3/J6rJTS_iRI6u9oIUlbchDQ/zh-cn_image_0000002573855233.png?HW-CC-KV=V1&HW-CC-Date=20260420T191515Z&HW-CC-Expire=86400&HW-CC-Sign=DC9B8255B46646C9DB942D92D0EE633D1B60F6420C07806254D7B34ADE58C2B6)
+- 如果不需要进行Vector计算，比如仅需要做格式随路转换等场景，可对上述流程进行优化，对VECIN和VECOUT进行绑定，绑定的效果可以实现输入输出使用相同buffer，实现double buffer。
+
+ 
+
+![image](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/12/v3/Ln0aYRitToGRcbeDrPE4wA/zh-cn_image_0000002573975213.png?HW-CC-KV=V1&HW-CC-Date=20260420T191515Z&HW-CC-Expire=86400&HW-CC-Sign=068CF5BBFE2C5D694DAAEAB1D760DB993B4B8EF33B243928017965F8A48B66AC)
